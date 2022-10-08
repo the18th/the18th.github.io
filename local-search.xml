@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>ROS学习（1）ROS概述与环境搭建笔记</title>
+    <link href="/2022/10/08/ROStutorials2/"/>
+    <url>/2022/10/08/ROStutorials2/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文基于<br><a href="http://www.autolabor.com.cn/book/ROSTutorials/">http://www.autolabor.com.cn/book/ROSTutorials/</a><br>和配套视频<br><a href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ/">https://www.bilibili.com/video/BV1Ci4y1L7ZZ/</a><br>教程进行学习，本文仅作个人学习时的补充学习记录。<br>如果您是想要从零开始学习ROS,请移步上述网址。<br>本文可作为第二章补充阅读。</p></blockquote>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>ROS学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>ROS学习（1）ROS概述与环境搭建笔记</title>
+    <link href="/2022/10/07/ROStutorials1/"/>
+    <url>/2022/10/07/ROStutorials1/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文基于<br><a href="http://www.autolabor.com.cn/book/ROSTutorials/">http://www.autolabor.com.cn/book/ROSTutorials/</a><br>和配套视频<br><a href="https://www.bilibili.com/video/BV1Ci4y1L7ZZ/">https://www.bilibili.com/video/BV1Ci4y1L7ZZ/</a><br>教程进行学习，本文仅作个人学习时的补充学习记录。<br>如果您是想要从零开始学习ROS,请移步上述网址。<br>本文可作为第一章补充阅读。</p></blockquote><h1 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h1><h2 id="Cmake"><a href="#Cmake" class="headerlink" title="Cmake"></a>Cmake</h2><p>CMake是一个跨平台的编译(Build)工具,可以用简单的语句来描述所有平台的编译过程。</p><p>CMake能够输出各种各样的makefile或者project文件，能测试编译器所支持的C++特性,类似UNIX下的automake。</p><p>CMake 不仅可以编译源代码、制作程序库、产生适配器（wrapper）、还可以用任意的顺序建构执行档。CMake 支持 in-place 建构（二进档和源代码在同一个目录树中）和 out-of-place 建构（二进档在别的目录里），因此可以很容易从同一个源代码目录树中建构出多个二进档。CMake 也支持静态与动态程式库的建构。<br><a href="https://blog.csdn.net/weixin_45525272/article/details/122053959">原文及衍生学习</a></p><h2 id="BASH"><a href="#BASH" class="headerlink" title="BASH"></a>BASH</h2><p>Bash，Unix shell的一种，在1987年由布莱恩·福克斯为了GNU计划而编写。1989年发布第一个正式版本，原先是计划用在GNU操作系统上，但能运行于大多数类Unix系统的操作系统之上，包括Linux与Mac OS X v10.4都将它作为默认shell。</p><p>Bash是Bourne shell的后继兼容版本与开放源代码版本，它的名称来自Bourne shell（sh）的一个双关语（Bourne again &#x2F; born again）：Bourne-Again SHell。</p><p>Bash是一个命令处理器，通常运行于文本窗口中，并能执行用户直接输入的命令。Bash还能从文件中读取命令，这样的文件称为脚本。和其他Unix shell 一样，它支持文件名替换（通配符匹配）、管道、here文档、命令替换、变量，以及条件判断和循环遍历的结构控制语句。包括关键字、语法在内的基本特性全部是从sh借鉴过来的。其他特性，例如历史命令，是从csh和ksh借鉴而来。总的来说，Bash虽然是一个满足POSIX规范的shell，但有很多扩展。  </p><h3 id="Unix-shell"><a href="#Unix-shell" class="headerlink" title="Unix shell"></a>Unix shell</h3><p>Unix shell，通常被称作“命令行”，为Unix和类Unix操作系统提供了传统的用户界面。用户通过输入shell所执行的命令，引导计算机的操作。在微软Windows操作系统平台，类似程序是command.com，或者基于Windows NT内核操作系统的cmd.exe。</p><h2 id="src文件夹"><a href="#src文件夹" class="headerlink" title="src文件夹"></a>src文件夹</h2><p>src 在软件中都是指 source ，也就是 源代码 的意思。 在很多语言的工程里都一个src文件夹 用来存放源代码以区别开其它文件 （模板文件、Web文件等）。 </p><h2 id="xml文件"><a href="#xml文件" class="headerlink" title=".xml文件"></a>.xml文件</h2><p>XML (Extensible Markup Language) 是一种类似于 HTML 的标记语言，但是 XML 没有使用预定义的标记。 因此，您可以根据自己的设计需求定义专属于您的标记。 这是一种十分有用的可存储、可搜索和可共享的格式存储数据的方法。<br>.launch文件也属于.xml文件，ROS中用.launch文件来同时启动多个节点。<br><a href="https://www.runoob.com/xml/xml-intro.html">衍生学习</a></p><h2 id="json"><a href="#json" class="headerlink" title=".json"></a>.json</h2><p>JSON: JavaScript Object Notation(JavaScript 对象表示法)<br>JSON 是存储和交换文本信息的语法，类似 XML。<br>JSON 比 XML 更小、更快，更易解析，  JSON 易于人阅读和编写。<br>C、Python、C++、Java、PHP、Go等编程语言都支持 JSON。<br>在VScode里用作配置文件。<br><a href="http://c.biancheng.net/json/">衍生学习</a></p><h1 id="一点有意义的快捷键（in-VScode）"><a href="#一点有意义的快捷键（in-VScode）" class="headerlink" title="一点有意义的快捷键（in VScode）"></a>一点有意义的快捷键（in VScode）</h1><p><strong>ctrl+&#x2F;</strong><br>注释和反注释</p><p><strong>ctrl+shift+b</strong><br>编译</p><p><strong>ctrl+shift+p</strong><br>调出用于执行命令的输入框，这些命令来自VSCode自带已经插件扩展的命令。插件扩展命令可以查看以下示例，在package.json里注册命令，然后通过注册命令找到对应代码执行相应逻辑。</p><p><strong>ctrl+&#96;</strong><br>打开终端</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>ROS学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>守望先锋，再见。</title>
     <link href="/2022/10/05/overwatch-return/"/>
     <url>/2022/10/05/overwatch-return/</url>
