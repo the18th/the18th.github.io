@@ -1,0 +1,720 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/18.png">
+  <link rel="icon" href="/img/18.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="The_18th">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文是为完成课设自学的意识流博客，主要供自己记录。如果有交流指正敬请不吝赐教。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器人控制理论课设知识意识流综合">
+<meta property="og:url" content="http://example.com/2023/01/03/robotic_control_advance/index.html">
+<meta property="og:site_name" content="Terminal 18">
+<meta property="og:description" content="本文是为完成课设自学的意识流博客，主要供自己记录。如果有交流指正敬请不吝赐教。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-03T14:52:25.000Z">
+<meta property="article:modified_time" content="2023-01-19T13:59:30.844Z">
+<meta property="article:author" content="The_18th">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>机器人控制理论课设知识意识流综合 - Terminal 18</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Terminal 18</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="机器人控制理论课设知识意识流综合"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-01-03 22:52" pubdate>
+          2023年1月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          118 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">机器人控制理论课设知识意识流综合</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>本文是为完成课设自学的意识流博客，主要供自己记录。如果有交流指正敬请不吝赐教。</p>
+<span id="more"></span>
+
+
+<h2 id="一阶惯性环节转换为数字滤波器推导"><a href="#一阶惯性环节转换为数字滤波器推导" class="headerlink" title="一阶惯性环节转换为数字滤波器推导"></a>一阶惯性环节转换为数字滤波器推导</h2><blockquote>
+<p>前置知识：<br>课程：自动控制理论和信号处理基础（信号与系统）<br>知识点：了解Z变换，拉普拉斯变换和一阶惯性环节</p>
+</blockquote>
+<p>一阶惯性环节本身就是低通滤波器，可将一阶惯性环节改为  $$\Phi(s)&#x3D;\frac{U_{o}(s)}{U_{i}(s)}&#x3D;\frac{1}{RCs+1}&#x3D;\frac{\omega_{c}}{s+\omega_{c}} $$ ，其中  $\omega_{c}&#x3D;\frac{1}{RC}$  为截止频率。为了便于在C语言中实现一阶低通滤波，将其离散化，使用一阶向后差分  $s&#x3D;\frac{1-z^{-1}}{T_{s}}$  ，可得</p>
+<p>$$\begin{array}{l}<br>\phi(z)&#x3D;\frac{Y(z)}{X(z)}&#x3D;\frac{\omega_{c}}{\frac{1-Z^{-1}}{T_{s}}+\omega_{c}}&#x3D;\frac{T_{s} \omega_{c}}{\left(1-Z^{-1}\right)+T_{s} \omega_{c}} \<br>Y(z)\left(\left(1-Z^{-1}\right)+T_{s} \omega_{c}\right)&#x3D;X(z) T_{s} \omega_{c} \<br>Y(n)-Y(n-1)+Y(n) T_{s} \omega_{c}&#x3D;X(n) T_{s} \omega_{c} \<br>Y(n)&#x3D;\frac{1}{\left(1+T_{s} \omega_{c}\right)} Y(n-1)+\frac{T_{s} \omega_{c}}{\left(1+T_{s} \omega_{c}\right)} X(n) \<br>Y(n)&#x3D;Y(n-1)-\frac{T_{s} \omega_{c}}{\left(1+T_{s} \omega_{c}\right)} Y(n-1)+\frac{T_{s} \omega_{c}}{\left(1+T_{s} \omega_{c}\right)} X(n) \<br>Y(n)&#x3D;Y(n-1)+\frac{T_{s} \omega_{c}}{\left(1+T_{s} \omega_{c}\right)}(X(n)-Y(n-1))<br>\end{array}$$</p>
+<p>化简成这样后，低通滤波就可以使用两个加减法和一个乘法实现，写成C语言形式，可以化为</p>
+<p>$$Y(n)+&#x3D;\frac{\omega_{c}}{\left(f_{s}+\omega_{c}\right)}(X(n)-Y(n-1))$$<br>这里可以给出结论，同样的具有一定频率的信号输入(低通滤波器对直流量无效)，$\frac{Ts\omega c}{1+Ts\omega c}$越大，说明这个低通滤波器的截止频率越大，滤波效果降低；反之，滤波效果增强，但随之而来的是信号的失真程度增大，各有利弊，需要根据不同的应用需求确定该滤波系数的大小。</p>
+<h2 id="机器人交互控制"><a href="#机器人交互控制" class="headerlink" title="机器人交互控制"></a>机器人交互控制</h2><p>1.直接力控 Direct force control</p>
+<p>2.间接力控 Indirect force control<br>2.1柔顺控制 Compliance control<br>2.1.1被动柔顺 Passive compliance<br>2.1.2主动柔顺 Active compliance</p>
+<h3 id="2-2阻抗-x2F-导纳控制-Admittance-x2F-Impedance-control"><a href="#2-2阻抗-x2F-导纳控制-Admittance-x2F-Impedance-control" class="headerlink" title="2.2阻抗&#x2F;导纳控制 Admittance&#x2F;Impedance control"></a>2.2阻抗&#x2F;导纳控制 Admittance&#x2F;Impedance control</h3><blockquote>
+<p>参考资料：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/126338809">阻抗&#x2F;导纳控制最强解析 - 知乎 (zhihu.com)</a><br><a target="_blank" rel="noopener" href="https://www.aiimooc.com/mall/preshow-htm-itemid-660.html">机器人阻抗控制及其在人机协作中的应用_睿慕课 (aiimooc.com)</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/43633361/answer/124417009">阻抗控制的实现方式应该是多种多样的，请能否概述一下大概有几种方式以及主流的方法？-知乎 </a></p>
+</blockquote>
+<p>考虑到力的影响，光使用位置控制来控制机器人的关节必然会出现误差，引起环境或机器人的损坏。此时我们就要引入<strong>柔顺</strong>，即类似弹簧一样的力与位置间关系，来防止控制器无上限的输出力矩。</p>
+<p>但是机器人不能总是有弹簧相助，而且弹簧的刚度不能按需调节，也很难做到各向异性（在不同方向上有不同的刚度）。所以希望能用控制算法让机器臂表现出想要的柔性。也就是实际上是由控制算法实现的弹性系统。最简单的有弹性、而且不会永久震荡的系统就是<em><strong>Mass-Spring-Damper（质量-弹簧-阻尼系统）</strong></em>。</p>
+<p>动力学方程即$$M \ddot{x}+b \dot{x}+k x&#x3D;F+F_{e x t}$$<br>其中<br>$M：质量，b：阻尼参数，k：弹性系数，x:位移，F：系统恒力，F_{e x t}：突加外力$<br>阻抗控制&#x2F;导纳控制的核心思想就是使用一个控制器来模拟这样一个有弹性的系统。</p>
+<ol>
+<li><p>测量当前位置和目标位置的差，调整末端产生的力（一般通过调整各关节力矩实现）。这种通常称为导纳控制或刚度控制。</p>
+</li>
+<li><p>测量末端受到的力，调整末端的速度。这种常称为阻抗控制。</p>
+</li>
+</ol>
+<h4 id="2-2-1关节空间-Joint-space"><a href="#2-2-1关节空间-Joint-space" class="headerlink" title="2.2.1关节空间 Joint space"></a>2.2.1关节空间 Joint space</h4><p> 目标 : 让机器人的每一个关节都体现出由弹簧-阻尼-质量组成的二阶系统的动态特性。</p>
+<p>$$\boldsymbol{M}<em>{d} \ddot{\tilde{\boldsymbol{q}}}+\boldsymbol{D}</em>{d} \dot{\tilde{\boldsymbol{q}}}+\boldsymbol{K}<em>{d} \tilde{\boldsymbol{q}}&#x3D;\boldsymbol{\tau}</em>{e x t}, \quad \tilde{\boldsymbol{q}}&#x3D;\boldsymbol{q}_{d}-\boldsymbol{q}<br>$$</p>
+<ul>
+<li>机器人动力学方程:</li>
+</ul>
+<p>$$\boldsymbol{M}(\boldsymbol{q}) \ddot{q}+\boldsymbol{C}(\dot{\boldsymbol{q}}, \boldsymbol{q}) \dot{\boldsymbol{q}}+\boldsymbol{g}<em>{\boldsymbol{k}}(\boldsymbol{q})&#x3D;\boldsymbol{\tau}-\boldsymbol{\tau}</em>{\text {ext }}<br>$$<br>其中$q:关节位置，\dot{\boldsymbol{q}}：关节角速度，\ddot{\boldsymbol{q}}：关节角加速度，M(q)：关节惯性矩阵，C(\dot{\boldsymbol{q}},q)：关节科里奥利矩阵，g_k(q)：重力矩阵$</p>
+<ul>
+<li>假定机器人的控制任务是跟随一条提前规划的轨迹， 即：  $$\ddot{\boldsymbol{q}}<em>{d}, \dot{\boldsymbol{q}}</em>{d}, \boldsymbol{q}_{d} $$</li>
+<li>则可定义如下的关节转矩控制输入:<br>$$<br>\begin{aligned}<br>\boldsymbol{\tau}&#x3D; &amp; \boldsymbol{M}(\boldsymbol{q}) \ddot{\boldsymbol{q}}<em>{d}+\boldsymbol{C}(\dot{\boldsymbol{q}}, \boldsymbol{q}) \dot{\boldsymbol{q}}+\boldsymbol{g}(\boldsymbol{q}) \<br>&amp; +\boldsymbol{M}(\boldsymbol{q}) \boldsymbol{M}</em>{d}^{-1}\left(\boldsymbol{D}<em>{d} \dot{\tilde{\boldsymbol{q}}}+\boldsymbol{K}</em>{d} \tilde{\boldsymbol{q}}\right)+\left(\boldsymbol{I}-\boldsymbol{M}(\boldsymbol{q}) \boldsymbol{M}<em>{d}^{-1}\right) \boldsymbol{\tau}</em>{e x t}<br>\end{aligned}<br>$$</li>
+<li>将上式代回机器人动力学方程，消去相同项，等式两边分别乘以  $M^{-1}(\boldsymbol{q}), M_{d}$  整理后可得到所期望的二阶系统动态方程。</li>
+</ul>
+<h4 id="2-2-2笛卡尔空间-Cartesian-space"><a href="#2-2-2笛卡尔空间-Cartesian-space" class="headerlink" title="2.2.2笛卡尔空间 Cartesian space"></a>2.2.2笛卡尔空间 Cartesian space</h4><h4 id="2-2-3-例子"><a href="#2-2-3-例子" class="headerlink" title="2.2.3 例子"></a>2.2.3 例子</h4><blockquote>
+<p>参考哈尔滨工业大学邢宏军硕士学位论文《基于主被动柔顺的机器人旋拧阀门作业研究》</p>
+</blockquote>
+<p>机器人与环境间的接触力与机器人位移的动态关系设为为质量-弹簧-阻尼系统, 即:</p>
+<p>$$\boldsymbol{F}<em>{e}&#x3D;\boldsymbol{M}</em>{e}\left(\ddot{\boldsymbol{X}}-\ddot{\boldsymbol{X}}<em>{e}\right)+\boldsymbol{B}</em>{e}\left(\dot{\boldsymbol{X}}-\dot{\boldsymbol{X}}<em>{e}\right)+\boldsymbol{K}</em>{e}\left(\boldsymbol{X}-\boldsymbol{X}_{e}\right)$$</p>
+<p>式中:  $\boldsymbol{S}<em>{e}&#x3D;\left{\boldsymbol{X}</em>{e}(t), \dot{\boldsymbol{X}}<em>{e}(t), \ddot{\boldsymbol{X}}</em>{e}(t)\right}$  一一环境位置变化轨迹;<br> $\boldsymbol{M}<em>{e}, \boldsymbol{B}</em>{e}, \boldsymbol{K}_{e}$  一一分别表示环境惯性、阻尼和刚度矩阵。</p>
+<p>由于在旋拧阀门过程中, 机器人的关节运动缓慢, 因此, 可以忽略机器人末端运动速度  $\dot{\boldsymbol{X}}$  和加速度  $\ddot{\boldsymbol{X}}$ 。同时, 尽管在旋拧过程中, 阀门手轮的位置(环境位置)一直处于移动状态, 但移动缓慢, 可忽略环境位移的速度  $\dot{\boldsymbol{X}}<em>{e}$ 和加速度  $\ddot{\boldsymbol{X}}</em>{e}$  影响。</p>
+<p>综上, 本文在分析过程中, 将机器人末端与环境间的接触模型简化为:</p>
+<p>$$\boldsymbol{F}<em>{e}&#x3D;\left{\begin{array}{ll}<br>\boldsymbol{K}</em>{e}\left(\boldsymbol{X}-\boldsymbol{X}<em>{e}\right) &amp; \boldsymbol{X} \geq \boldsymbol{X}</em>{e} \<br>0 &amp; \boldsymbol{X}&lt;\boldsymbol{X}_{e}<br>\end{array}\right.$$</p>
+<h4 id="2-2-4-自适应阻抗控制"><a href="#2-2-4-自适应阻抗控制" class="headerlink" title="2.2.4 自适应阻抗控制"></a>2.2.4 自适应阻抗控制</h4><h4 id="2-2-5-例子"><a href="#2-2-5-例子" class="headerlink" title="2.2.5 例子"></a>2.2.5 例子</h4><p>在实际旋拧阀门过程中, 无法实时获得阀门手轮的实际环境位置  $x_{e}(t)$ , 由此 导致无法准确设定机器人控制的参考位置 $x_{r}(t)$ , 从而使设计系统存在跟踪误差。本部分利用自适应控制实时计算参考位置  $x_{r}(t)$  以实现对期望作用力  $f_{d}$  的跟踪。自适应控制中设计的机器人参考位置偏移量是力跟踪误差  e  的函数, 如式(4-21)所示。</p>
+<p>$$x_{r}(t)&#x3D;g(t)+k_{p}(t) e(t)+k_{d}(t) \dot{e}(t)$$</p>
+<p>式中,  $k_{p}(t)$  和  $k_{d}(t)$  分别是作用在力误差上的自适应比例和微分反馈增益,  $g(t)$是自适应控制方法产生的辅助位置信号。由式(4-10)可知, 当期望力恒定时, 力误差动力学模型可简化为:</p>
+<p>$$m \ddot{e}+b \dot{e}+\left(k+k_{e}\right) e&#x3D;k f_{d}+m k_{e} \ddot{x}<em>{e}+b k</em>{e} \dot{x}<em>{e}+k k</em>{e} x_{e}-k k_{e} x_{r}<br>$$<br>将式(4-21)代入式(4-22)中, 可得:</p>
+<p>$$\ddot{e}+\frac{b+k k_{e} k_{d}(t)}{m} \dot{e}+\frac{k+k_{e}+k k_{e} k_{p}(t)}{m} e&#x3D;\frac{k\left(f_{d}+k_{e} x_{e}\right)+m k_{e} \ddot{x}<em>{e}+b k</em>{e} \dot{x}<em>{e}-k k</em>{e} g(t)}{m}$$</p>
+<p>式(4-23)表示的即是 MRAC 系统中的可调被控对象。为便于分析, 将式(4-23) 简化为:</p>
+<p>$$\ddot{e}(t)+a(t) \dot{e}(t)+b(t) e(t)&#x3D;f(t)$$</p>
+<p>式中:</p>
+<p>$$\begin{array}{l}<br>a(t)&#x3D;\left[b+k k_{e} k_{d}(t)\right] &#x2F; m \<br>b(t)&#x3D;\left[k+k_{e}+k k_{e} k_{p}(t)\right] &#x2F; m \<br>f(t)&#x3D;\left[k\left(f_{d}+k_{e} x_{e}\right)+m k_{e} \ddot{x}<em>{e}+b k</em>{e} \dot{x}<em>{e}-k k</em>{e} g(t)\right] &#x2F; m<br>\end{array}<br>$$<br>假定力跟踪误差的理想动态模型为:<br>$$<br>\ddot{e}<em>{m}(t)+2 \zeta \omega \dot{e}</em>{m}(t)+\omega^{2} e_{m}(t)&#x3D;0<br>$$<br>式中, $\zeta, \omega$  分别为用户自定义的阻尼比和无阻尼自然频率。<br>由式(4-24)和式(4-25) 可知:<br>$$<br>\left(\ddot{e}-\ddot{e}<em>{\mathrm{m}}\right)+2 \zeta \omega\left(\dot{e}-\dot{e}</em>{m}\right)+\omega^{2}\left(e-e_{m}\right)&#x3D;f+(2 \zeta \omega-a) \dot{e}+\left(\omega^{2}-b\right) e<br>$$<br>式(4-26)的状态空间形式为:<br>$$<br>\dot{E}&#x3D;\left[\begin{array}{cc}0 &amp; 1 \-\omega^{2} &amp; -2 \zeta \omega<br>\end{array}\right] E+\left[\begin{array}{cc}0 &amp; 0 \\omega^{2}-b &amp; 2 \zeta \omega-a<br>\end{array}\right]\left[\begin{array}{l}e \\dot{e} \end{array}\right]+\left[\begin{array}{l}0 \f<br>\end{array}\right]<br>$$<br>式中,  $E&#x3D;\left[\left(e-e_{m}\right),\left(\dot{e}-\dot{e}_{m}\right)\right]^{\mathrm{T}}$  是  $2 \times 1$  阶跟踪误差向量。构造正标量 Lyapunov 候补函数 V  :</p>
+<p>$$V&#x3D;E^{T} P E+Q_{0}\left(f-f^{<em>}\right)^{2}+Q_{1}\left(\omega^{2}-b+b^{</em>}\right)^{2}+Q_{2}\left(2 \zeta \omega-a+a^{<em>}\right)^{2}<br>$$<br>式中,  $\left[f^{</em>}, b^{<em>}, a^{</em>}\right]$  是待定义时间函数, $\left[Q_{0}, Q_{1}, Q_{2}\right]$  是正标量,  $P&#x3D;\left[\begin{array}{ll}p_{1} &amp; p_{2} \ p_{2} &amp; p_{3}\end{array}\right]$  是  $2 \times 2$ 阶正定对称矩阵且满足 Lyapunov 方程, 即:</p>
+<p>$$\left[\begin{array}{ll}<br>p_{1} &amp; p_{2} \<br>p_{2} &amp; p_{3}<br>\end{array}\right]\left[\begin{array}{cc}<br>0 &amp; 1 \<br>-\omega^{2} &amp; -2 \zeta \omega<br>\end{array}\right]+\left[\begin{array}{cc}<br>0 &amp; -\omega^{2} \<br>1 &amp; -2 \zeta \omega<br>\end{array}\right]\left[\begin{array}{ll}<br>p_{1} &amp; p_{2} \<br>p_{2} &amp; p_{3}<br>\end{array}\right]&#x3D;-\left[\begin{array}{ll}<br>q_{1} &amp; q_{2} \<br>q_{2} &amp; q_{3}<br>\end{array}\right]<br>$$<br>其中,  $Q&#x3D;\left[\begin{array}{ll}q_{1} &amp; q_{2} \ q_{2} &amp; q_{3}\end{array}\right]$  是正定对称矩阵。则 Lyapunov 候补函数  V  的导数为:<br>$$<br>\begin{aligned}<br>\dot{V}&#x3D; &amp; -E^{T} Q E+\left[2 Q_{0} f\left(\dot{f}-\dot{f}^{<em>}\right)+2 q f-2 Q_{0} f^{</em>}\left(\dot{f}-\dot{f}^{<em>}\right)\right]+ \<br>&amp; {\left[2 Q_{1}\left(b-\omega^{2}\right)\left(\dot{b}-\dot{b}^{</em>}\right)-2 q\left(b-\omega^{2}\right) e-2 Q_{1} b^{<em>}\left(\dot{b}-\dot{b}^{</em>}\right)\right]+} \<br>&amp; {\left[2 Q_{2}(a-2 \zeta \omega)\left(\dot{a}-\dot{a}^{<em>}\right)-2 q(a-2 \zeta \omega) \dot{e}-2 Q_{2} a^{</em>}\left(\dot{a}-\dot{a}^{<em>}\right)\right] }<br>\end{aligned}<br>$$<br>其中,  $q&#x3D;p_{2} e+p_{3} \dot{e}$  。为保证式(4-29)的渐进稳定性, 设定:<br>$$<br>\begin{array}{l}<br>2 Q_{0} f\left(\dot{f}-\dot{f}^{</em>}\right)+2 q f&#x3D;0 \<br>2 Q_{1}\left(b-\omega^{2}\right)\left(\dot{b}-\dot{b}^{<em>}\right)-2 q\left(b-\omega^{2}\right) e&#x3D;0 \<br>2 Q_{2}(a-2 \zeta \omega)\left(\dot{a}-\dot{a}^{</em>}\right)-2 q(a-2 \zeta \omega) \dot{e}&#x3D;0<br>\end{array}<br>$$<br>即:<br>$$<br>\begin{array}{l}<br>\dot{f}-\dot{f}^{<em>}&#x3D;-\frac{1}{Q_{0}} q \<br>\dot{b}-\dot{b}^{</em>}&#x3D;\frac{1}{Q_{1}} q e \<br>\dot{a}-\dot{a}^{<em>}&#x3D;\frac{1}{Q_{2}} q \dot{e}<br>\end{array}<br>$$<br>由式(4-32)可知, 式(4-30)可变化为:<br>$$<br>\dot{V}&#x3D;-E^{T} Q E+2 f^{</em>} q-2 b^{<em>} q e-2 a^{</em>} q \dot{e}<br>$$<br>为保证 $\dot{V}&lt;0$ , 对  $f^{<em>}, a^{</em>}  和  b^{<em>}$  作如下设定:<br>$$<br>\begin{array}{l}<br>f^{</em>}&#x3D;-Q_{0}^{<em>} q \<br>b^{</em>}&#x3D;Q_{1}^{<em>} q e \<br>a^{</em>}&#x3D;Q_{2}^{<em>} q \dot{e}<br>\end{array}<br>$$<br>其中,  $Q_{0}^{</em>}, Q_{1}^{<em>}$  和  $Q_{2}^{</em>}$  为非负常数。根据式(4-34), 式(4-33)可改写为<br>$$<br>\dot{V}&#x3D;-E^{T} Q E-2 Q_{0}^{<em>} q^{2}-2 Q_{1}^{</em>}(q e)^{2}-2 Q_{2}^{<em>}(q \dot{e})^{2}<br>$$<br>由此可知  $\dot{V}&lt;0$ , 即  $\dot{V}$  负定, 根据 Lyapunov 稳定理论可知, 该系统是稳定的。 由式(4-32)和式(4-34)可知, 系统稳定时, 自适应控制率中的参数  $f, a$  和  $b$  应分别取为:<br>$$<br>\begin{array}{l}<br>\dot{f}&#x3D;-\frac{1}{Q_{0}} q-Q_{0}^{</em>} \frac{d}{d t}[q] \<br>\dot{b}&#x3D;\frac{1}{Q_{1}} q e+Q_{1}^{<em>} \frac{d}{d t}[q e] \<br>\dot{a}&#x3D;\frac{1}{Q_{2}} q \dot{e}+Q_{2}^{</em>} \frac{d}{d t}[q \dot{e}]<br>\end{array}<br>$$<br>对上式积分, 可得:<br>$$<br>\begin{array}{l}<br>f(t)&#x3D;f(0)-\frac{1}{Q_{0}} \int_{0}^{t} q(t) d t-Q_{0}^{<em>} q(t) \<br>b(t)&#x3D;b(0)+\frac{1}{Q_{1}} \int_{0}^{t} q(t) e(t) d t+Q_{1}^{</em>} q(t) e(t) \<br>a(t)&#x3D;a(0)+\frac{1}{Q_{2}} \int_{0}^{t} q(t) \dot{e}(t) d t+Q_{2}^{<em>} q(t) \dot{e}(t)<br>\end{array}<br>$$<br>其中,  $q(t)&#x3D;p_{2} e(t)+p_{3} \dot{e}(t)$  。<br>由式(4-23)和式(4-24)可知, 为保证系统是 Lyapunov意义下稳定的, 可将式(4-21) 中的参数  $\left[g(t), k_{p}(t), k_{a}(t)\right]$  进行如下设计:<br>$$<br>\begin{array}{l}<br>g(t)&#x3D;g(0)+\alpha_{1} \int_{0}^{t} q(t) d t+\alpha_{2} q(t) \<br>k_{p}(t)&#x3D;k_{p}(0)+\beta_{1} \int_{0}^{t} q(t) e(t) d t+\beta_{2} q(t) e(t) \<br>k_{d}(t)&#x3D;k_{d}(0)+\gamma_{1} \int_{0}^{t} q(t) \dot{e}(t) d t+\gamma_{2} q(t) \dot{e}(t) \<br>q(t)&#x3D;\lambda_{\rho} e(t)+\lambda_{d} \dot{e}(t)<br>\end{array}<br>$$<br>其中,  $\left(\lambda_{p}, \lambda_{d}\right)$  分别为正的位置和速度加权因子,  $\left(\alpha_{1}, \beta_{1}, \gamma_{1}\right)$  为正的积分自适应增益,  $\left(\alpha_{2}, \beta_{2}, \gamma_{2}\right)$  为非负的比例自适应增益,  $\left[g(0), k_{p}(0), k_{d}(0)\right]$  为各参数的初始值。 结合式(4-38), 对式(4-21)进行适当改变, 可写成:<br>$$<br>x_{r}(t)&#x3D;x_{r}(0)+k_{p}^{</em>}(t) e(t)+k_{i}^{<em>} \int_{0}^{t} e(t) d t+k_{d}^{</em>} \dot{e}(t)<br>$$<br>其中,  $k_{p}^{<em>}&#x3D;\alpha_{1} \lambda_{d}+\alpha_{2} \lambda_{p}+k_{p}(t), k_{i}^{</em>}&#x3D;\alpha_{1} \lambda_{p}, k_{d}^{*}&#x3D;\alpha_{2} \lambda_{d}+k_{d}(t)$  且  $x_{r}(0)&#x3D;g(0)$  。<br>通过以上分析可知, 参考位置  $x_{r}(t)$  实际上是由关于力跟踪误差  $e(t)$  的一种 PID 控制器生成的。该控制器中, 积分项 I 的系数为常量增益, 比例微分项 PD 系数为s自适应增。<br>以上所述即为本文采用的自适应阻抗控制策略, 值得注意的是, 本控制器中 不含有环境位置  $x_{e}$  和环境刚度  $k_{e}$ , 并可以基于力跟踪误差性能指标  $e, \dot{e}$  对控制系统 进行在线调节。因此, 本文所设计的自适应阻抗控制方法可以快速适应大幅度的环境位置或环境刚度突变。</p>
+<p>3.力&#x2F;位混合控制 Hybrid position&#x2F;force control</p>
+<h2 id="最优控制理论在倒立摆系统中的应用"><a href="#最优控制理论在倒立摆系统中的应用" class="headerlink" title="最优控制理论在倒立摆系统中的应用"></a>最优控制理论在倒立摆系统中的应用</h2><p>状态反馈矩阵的求解过程<br>寻找控制率u，使得J最小<br>$$\begin{aligned}<br>J&#x3D;\psi\left[x\left(t_{f}\right)\right] &amp; +\int_{t_{0}}^{t_{f}} L[x(t), u(t), t] d t \<br>\text { subject to } \dot{x} &amp; &#x3D;f(x(t), u(t), t) \<br>x\left(t_{o}\right) &amp; &#x3D;x_{o}<br>\end{aligned}$$<br>用成本向量  $\lambda$ , 引入新的代价函数:<br>$$<br>\bar{J}&#x3D;\psi\left[x\left(t_{f}\right)\right]+\int_{t_{0}}^{t_{f}}\left[L+\lambda^{T}(f-\dot{x})\right] d t<br>$$<br>显然, 成本向量  $\lambda$  可以任意取值, 因为:<br>$$<br>f-\dot{x}&#x3D;0<br>$$<br>沿着最优路径, $J$和  $\bar{J}$  的变化应该消失 (等于 0 )<br>$$<br>\delta \bar{J}&#x3D;\psi_{x} \delta x\left(t_{f}\right)+\int_{t_{o}}^{t_{f}}\left[L_{x} \delta x+L_{u} \delta u+\lambda^{T} f_{x} \delta x+\lambda^{T} f_{u} \delta u-\lambda^{T} \delta \dot{x}\right] d t,<br>$$<br>其中, 下标代表偏导数。<br>用成本向量  $\lambda$ , 引入新的代价函数:<br>$$<br>\bar{J}&#x3D;\psi\left[x\left(t_{f}\right)\right]+\int_{t_{0}}^{t_{f}}\left[L+\lambda^{T}(f-\dot{x})\right] d t<br>$$<br>显然, 成本向量  $\lambda$  可以任意取值, 因为:<br>$$<br>f-\dot{x}&#x3D;0<br>$$<br>沿着最优路径, $J$和  $\bar{J}$  的变化应该消失 (等于 0 )<br>$$<br>\delta \bar{J}&#x3D;\psi_{x} \delta x\left(t_{f}\right)+\int_{t_{o}}^{t_{f}}\left[L_{x} \delta x+L_{u} \delta u+\lambda^{T} f_{x} \delta x+\lambda^{T} f_{u} \delta u-\lambda^{T} \delta \dot{x}\right] d t,<br>$$<br>其中, 下标代表偏导数。利用分部积分法:<br>$$<br>-\int_{t_{o}}^{t_{f}} \lambda^{T} \delta \dot{x} d t&#x3D;-\lambda^{T}\left(t_{f}\right) \delta x\left(t_{f}\right)+\lambda^{T}\left(t_{o}\right) \delta x\left(t_{o}\right)+\int_{t_{o}}^{t_{f}} \dot{\lambda}^{T} \delta x d t,<br>$$<br>将分部积分法的表达式, 带入  $\bar{J}$  的变化量表达式中:<br>$$<br>\begin{aligned}<br>\delta \bar{J}&#x3D; &amp; \psi_{x}\left(x\left(t_{f}\right)\right) \delta x\left(t_{f}\right)+\int_{t_{o}}^{t_{f}}\left(L_{u}+\lambda^{T} f_{u}\right) \delta u d t+ \<br>&amp; \int_{t_{o}}^{t_{f}}\left(L_{x}+\lambda^{T} f_{x}+\dot{\lambda}^{T}\right) \delta x d t-\lambda^{T}\left(t_{f}\right) \delta x\left(t_{f}\right)+\lambda^{T}\left(t_{o}\right) \delta x\left(t_{o}\right) .<br>\end{aligned}<br>$$<br> $\lambda^{T}\left(t_{o}\right) \delta x\left(t_{o}\right)$  等于0, 因为初始状态是常数。<br> $$<br>\begin{aligned}<br>\delta \bar{J}&#x3D; &amp; \psi_{x}\left(x\left(t_{f}\right)\right) \delta x\left(t_{f}\right)+\int_{t_{o}}^{t_{f}}\left(L_{u}+\lambda^{T} f_{u}\right) \delta u d t+ \<br>&amp; \int_{t_{o}}^{t_{f}}\left(L_{x}+\lambda^{T} f_{x}+\dot{\lambda}^{T}\right) \delta x d t-\lambda^{T}\left(t_{f}\right) \delta x\left(t_{f}\right)<br>\end{aligned}<br>$$<br>为了保证增量为 0 , 增量表达式中的三个组成部分, 就应该分别<br>等于0:<br>$$<br>\begin{aligned}<br>L_{u}+\lambda^{T} f_{u} &amp; &#x3D;0 \<br>L_{x}+\lambda^{T} f_{x}+\dot{\lambda}^{T} &amp; &#x3D;0 \<br>\psi_{x}\left(x\left(t_{f}\right)\right)-\lambda^{T}\left(t_{f}\right) &amp; &#x3D;0 .<br>\end{aligned}<br>$$<br>第二项和第三项, 可以重新写为下式:<br>$$<br>\begin{aligned}<br>\dot{\lambda}^{T} &amp; &#x3D;-L_{x}-\lambda^{T} f_{x} \<br>\lambda_{T}\left(t_{f}\right) &amp; &#x3D;\psi_{x}\left(x\left(t_{f}\right)\right) .<br>\end{aligned}<br>$$<br>针对线性二次型调节器 (LQR)：<br>$$<br>L&#x3D;\frac{1}{2} x^{T} Q x+\frac{1}{2} u^{T} R u,<br>$$<br>对比最一般的表达式:<br>$$<br>\delta \bar{J}&#x3D;\psi_{x} \delta x\left(t_{f}\right)+\int_{t_{o}}^{t_{f}}\left[L_{x} \delta x+L_{u} \delta u+\lambda^{T} f_{x} \delta x+\lambda^{T} f_{u} \delta u-\lambda^{T} \delta \dot{x}\right] d t,<br>$$<br>可以得到如下结果:<br>$$<br>\begin{aligned}<br>L_{x} &amp; &#x3D;x^{T} Q \<br>L_{u} &amp; &#x3D;u^{T} R \<br>f_{x} &amp; &#x3D;A \<br>f_{u} &amp; &#x3D;B,<br>\end{aligned}<br>$$<br>对比最优路径上, 增量为 0 的结论:<br>$$<br>\begin{array}{l}<br>\begin{array}{ll}<br>L_{u}+\lambda^{T} f_{u}&#x3D;0 &amp; L_{x}&#x3D;x^{T} Q \<br>L_{u}&#x3D;u^{T} R<br>\end{array} \<br>L_{x}+\lambda^{T} f_{x}+\dot{\lambda}^{T}&#x3D;0 \quad f_{x}&#x3D;A \<br>\psi_{x}\left(x\left(t_{f}\right)\right)-\lambda^{T}\left(t_{f}\right)&#x3D;0 . \quad f_{u}&#x3D;B, \<br>\dot{x}&#x3D;A x+B u \<br>\text { 可以得到如下结果: } \<br>x\left(t_{o}\right)&#x3D;x_{o} \<br>\dot{\lambda}&#x3D;-Q x-A^{T} \lambda \<br>\lambda\left(t_{f}\right)&#x3D;0 \<br>R u+B^{T} \lambda&#x3D;0 . \<br>\end{array}<br>$$<br>针对线性系统, 假设成本向量  $\lambda$  和 $x$  之间, 满足:  $\quad \lambda&#x3D;P x$ .<br>对比最优路径上, 增量为 0 的结论:<br>$$<br>\begin{array}{l}<br>\begin{array}{ll}<br>L_{u}+\lambda^{T} f_{u}&#x3D;0 &amp; L_{x}&#x3D;x^{T} Q \<br>L_{u}&#x3D;u^{T} R<br>\end{array} \<br>L_{x}+\lambda^{T} f_{x}+\dot{\lambda}^{T}&#x3D;0 \quad f_{x}&#x3D;A \<br>\psi_{x}\left(x\left(t_{f}\right)\right)-\lambda^{T}\left(t_{f}\right)&#x3D;0 . \quad f_{u}&#x3D;B, \<br>\dot{x}&#x3D;A x+B u \<br>\text { 可以得到如下结果: } \<br>x\left(t_{o}\right)&#x3D;x_{o} \<br>\dot{\lambda}&#x3D;-Q x-A^{T} \lambda \<br>\lambda\left(t_{f}\right)&#x3D;0 \<br>R u+B^{T} \lambda&#x3D;0 . \<br>\end{array}<br>$$<br>针对线性系统, 假设成本向量  $\lambda$  和  $x$  之间, 满足:  $\quad \lambda&#x3D;P x$ .<br>系统的控制量等于:  $\quad R u+B^{T} \lambda&#x3D;0 . \quad \lambda&#x3D;P x$.<br>$$<br>u&#x3D;-R^{-1} B^{T} \lambda&#x3D;-R^{-1} B^{T} P x<br>$$<br>对于状态反馈控制器, 而言:<br>$$<br>u&#x3D;-K x<br>$$<br>对比上述两式, 可得:<br>$$<br>K&#x3D;R^{-1} B^{T} P<br>$$</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>机器人控制理论课设知识意识流综合</div>
+      <div>http://example.com/2023/01/03/robotic_control_advance/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>The_18th</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年1月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/23/obsidian-1/" title="初识obsidian——写markdown的好伙伴">
+                        <span class="hidden-mobile">初识obsidian——写markdown的好伙伴</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
