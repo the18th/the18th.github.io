@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>机器人学大作业</title>
+    <link href="/2023/03/15/robotics_homework/"/>
+    <url>/2023/03/15/robotics_homework/</url>
+    
+    <content type="html"><![CDATA[<p>本文旨在记录HIT机器人学课程相关作业  </p><span id="more"></span><h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><p>R-水平转动关节，<br>R1-垂直转动关节，<br>P-水平移动关节，<br>P1-垂直移动关节，</p><p>图示R1RR三关节机械臂，已知：结构参数为L1、L2、L3，连杆1、2、3的质量分别为m1、m2、m3，三连杆质量均集中连杆末端关节上。</p><p>我的作业是PPP1<br>即前两关节水平移动第三关节垂直移动</p><p>(1)试建立该机械臂坐标系并列写连接变量表。（10分）<br>(2)试推导机械臂末端连杆相对基座坐标系的齐次坐标变换矩阵。（10分）<br>(3)已知末端连杆位姿，推导该机械臂运动学逆解方程。（10分）<br>(4)已知各关节广义速度，试推导各连杆及质心在自身坐标系中描述的相对基系的广义速度计算方程。（10分）<br>(5)已知各关节广义加速度和重力加速度，试推导各连杆及质心的广义加速度计算方程。（10分）<br>(6)机械臂空载，推导各关节电机驱动力或力矩计算方程。（10分）</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>技术碎片</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>机器人控制理论课设知识意识流综合</title>
     <link href="/2023/01/03/robotic_control_advance/"/>
     <url>/2023/01/03/robotic_control_advance/</url>
@@ -161,6 +180,25 @@
     <tags>
       
       <tag>碎碎念</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>大数据课程相关资料汇总</title>
+    <link href="/2022/03/02/Bigdata_resources/"/>
+    <url>/2022/03/02/Bigdata_resources/</url>
+    
+    <content type="html"><![CDATA[<p>本文旨在记录HIT大数据智能控制课程相关资料  </p><span id="more"></span><p>授课老师王金宝</p><h2 id="Part-2"><a href="#Part-2" class="headerlink" title="Part 2"></a>Part 2</h2><h3 id="GFS-Google-File-System"><a href="#GFS-Google-File-System" class="headerlink" title="GFS(Google File System)"></a>GFS(Google File System)</h3><p><a href="https://www.bilibili.com/video/BV1fT411c7y6/?spm_id_from=333.337.search-card.all.click&vd_source=62552d67d8de63c74ce35658499bc372">解读Google分布式文件系统GFS（合集）_哔哩哔哩_bilibili</a><br><a href="https://blog.csdn.net/Yaoman753/article/details/123786807">(71条消息) 【分布式系统】GFS(Google File System )详解_gfs数据_猎猎风中的博客-CSDN博客</a></p><h3 id="Bigtable"><a href="#Bigtable" class="headerlink" title="Bigtable"></a>Bigtable</h3><p><a href="https://www.bilibili.com/video/BV1bj41137BY/?spm_id_from=333.337.search-card.all.click&vd_source=62552d67d8de63c74ce35658499bc372">【论文笔记】解读Google三驾马车之Bigtable（合集）_哔哩哔哩_bilibili</a></p><h3 id="Dynamo"><a href="#Dynamo" class="headerlink" title="Dynamo"></a>Dynamo</h3>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>技术碎片</tag>
       
     </tags>
     
