@@ -1,0 +1,1136 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/18.png">
+  <link rel="icon" href="/img/18.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="The_18th">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文旨在记录HIT嵌入式系统原理课程相关资料">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式系统原理课程串讲复习">
+<meta property="og:url" content="http://example.com/2023/04/14/embedded_review/index.html">
+<meta property="og:site_name" content="Terminal 18">
+<meta property="og:description" content="本文旨在记录HIT嵌入式系统原理课程相关资料">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-14T14:48:40.000Z">
+<meta property="article:modified_time" content="2023-04-14T14:50:15.644Z">
+<meta property="article:author" content="The_18th">
+<meta property="article:tag" content="技术碎片">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>嵌入式系统原理课程串讲复习 - Terminal 18</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Terminal 18</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="嵌入式系统原理课程串讲复习"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-04-14 22:48" pubdate>
+          2023年4月14日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          103 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">嵌入式系统原理课程串讲复习</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>本文旨在记录HIT嵌入式系统原理课程相关资料  </p>
+<span id="more"></span>
+<p>授课老师：吕为工</p>
+<h2 id="第1章-嵌入式系统基础"><a href="#第1章-嵌入式系统基础" class="headerlink" title="第1章 嵌入式系统基础"></a>第1章 嵌入式系统基础</h2><h3 id="嵌入式系统的一般定义"><a href="#嵌入式系统的一般定义" class="headerlink" title="嵌入式系统的一般定义"></a>嵌入式系统的一般定义</h3><p>是指以应用为中心、以计算机技术为基础、软件硬件可裁剪、适应应用系统对功能、可靠性、成本、体积、功耗严格要求的专用计算机系统。</p>
+<h3 id="嵌入式系统的组成、嵌入式系统的特点"><a href="#嵌入式系统的组成、嵌入式系统的特点" class="headerlink" title="嵌入式系统的组成、嵌入式系统的特点"></a>嵌入式系统的组成、嵌入式系统的特点</h3><p>组成：就像一般的计算机系统包括软件和硬件一样，嵌入式系统是由嵌入式硬件和嵌入式软件组成。<br>特点：<br>1.适应不同的应用场合，个性化很强，软件一般要针对硬件进行移植，追求的是专用而不是通用，这也是嵌入式系统开发周期较长的根本原因<br>2.一般工作在资源有限的环境中，对功耗、体积等都有着特定的要求，其功能的设计及实现一般不会太复杂<br>3.应用场合多种多样，功能纷繁复杂，无法按照某一标准定制<br>4.通常有各自专门的开发工具和环境<br>5应用软件很多时候会和操作系统结合在一起，对代码质量和效率要求很高.<br>6.使用嵌入式操作系统，而嵌入式操作系统通常要求内核小、可裁剪、多任务，一些应用场合还对可靠性实时性有着极高的要求</p>
+<h3 id="嵌入式系统与台式计算机硬件平台比较"><a href="#嵌入式系统与台式计算机硬件平台比较" class="headerlink" title="嵌入式系统与台式计算机硬件平台比较"></a>嵌入式系统与台式计算机硬件平台比较</h3><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">嵌入式系统</th>
+<th align="center">台式计算机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CPU：</td>
+<td align="center">ARM等嵌入式处理器</td>
+<td align="center">Intel,AMD 的X86处理器</td>
+</tr>
+<tr>
+<td align="center">内存：</td>
+<td align="center">SDRAM芯片</td>
+<td align="center">内存条</td>
+</tr>
+<tr>
+<td align="center">存储设备：</td>
+<td align="center">FLASH芯片</td>
+<td align="center">硬盘或固态</td>
+</tr>
+<tr>
+<td align="center">输入设备：</td>
+<td align="center">按键，触摸屏</td>
+<td align="center">鼠标键盘</td>
+</tr>
+<tr>
+<td align="center">输出设备：</td>
+<td align="center">LCD</td>
+<td align="center">显示器</td>
+</tr>
+<tr>
+<td align="center">声音设备：</td>
+<td align="center">音频芯片</td>
+<td align="center">声卡</td>
+</tr>
+<tr>
+<td align="center">接口：</td>
+<td align="center">MAX3232等芯片</td>
+<td align="center">主板集成</td>
+</tr>
+<tr>
+<td align="center">其他设备：</td>
+<td align="center">USB及网络等芯片</td>
+<td align="center">主板集成或外接卡</td>
+</tr>
+</tbody></table>
+<h3 id="嵌入式系统与台式计算机软件平台比较"><a href="#嵌入式系统与台式计算机软件平台比较" class="headerlink" title="嵌入式系统与台式计算机软件平台比较"></a>嵌入式系统与台式计算机软件平台比较</h3><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">嵌入式系统</th>
+<th align="center">台式计算机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">引导代码</td>
+<td align="center">Bootloader引导，针对电路移植</td>
+<td align="center">主板BIOS引导</td>
+</tr>
+<tr>
+<td align="center">操作系统</td>
+<td align="center">Linux,WINCE,Vxworks等，需要移植</td>
+<td align="center">一般为windows不需移植</td>
+</tr>
+<tr>
+<td align="center">驱动程序</td>
+<td align="center">需针对电路开发或移植</td>
+<td align="center">操作系统含有大部分驱动程序</td>
+</tr>
+<tr>
+<td align="center">协议栈</td>
+<td align="center">需要移植</td>
+<td align="center">操作系统或第三方提供</td>
+</tr>
+<tr>
+<td align="center">开发环境</td>
+<td align="center">借助主机交叉编译</td>
+<td align="center">本机即可开发调试</td>
+</tr>
+<tr>
+<td align="center">仿真器</td>
+<td align="center">需要</td>
+<td align="center">不需要</td>
+</tr>
+</tbody></table>
+<h3 id="嵌入式系统与单片机硬件平台比较"><a href="#嵌入式系统与单片机硬件平台比较" class="headerlink" title="嵌入式系统与单片机硬件平台比较"></a>嵌入式系统与单片机硬件平台比较</h3><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">嵌入式系统</th>
+<th align="center">台式计算机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">硬件平台</td>
+<td align="center">厂家提供通用硬件平台</td>
+<td align="center">自己设计制作</td>
+</tr>
+<tr>
+<td align="center">硬件设计</td>
+<td align="center">在基础上裁剪和扩展</td>
+<td align="center">重新设计</td>
+</tr>
+<tr>
+<td align="center">CPU</td>
+<td align="center">一般为32位</td>
+<td align="center">多为8和16位</td>
+</tr>
+<tr>
+<td align="center">MMU</td>
+<td align="center">支持</td>
+<td align="center">不支持</td>
+</tr>
+<tr>
+<td align="center">功能</td>
+<td align="center">能够实现复杂功能</td>
+<td align="center">难以实现复杂功能</td>
+</tr>
+<tr>
+<td align="center">开发人员</td>
+<td align="center">主要为计算机专业人员</td>
+<td align="center">硬件设计人员</td>
+</tr>
+<tr>
+<td align="center">仿真器</td>
+<td align="center">初始化需要，后续不需要</td>
+<td align="center">全程使用</td>
+</tr>
+<tr>
+<td align="center">仿真头</td>
+<td align="center">不需要</td>
+<td align="center">需要</td>
+</tr>
+</tbody></table>
+<h3 id="嵌入式系统与单片机软件平台比较"><a href="#嵌入式系统与单片机软件平台比较" class="headerlink" title="嵌入式系统与单片机软件平台比较"></a>嵌入式系统与单片机软件平台比较</h3><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">嵌入式系统</th>
+<th align="center">台式计算机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">开发平台</td>
+<td align="center">主机对应操作系统</td>
+<td align="center">主机上的仿真软件</td>
+</tr>
+<tr>
+<td align="center">功能</td>
+<td align="center">相对复杂</td>
+<td align="center">相对简单</td>
+</tr>
+<tr>
+<td align="center">运行环境</td>
+<td align="center">嵌入式操作系统</td>
+<td align="center">直接运行在硬件上</td>
+</tr>
+<tr>
+<td align="center">编程语言</td>
+<td align="center">C，JAVA和框架</td>
+<td align="center">C，汇编</td>
+</tr>
+<tr>
+<td align="center">协议支持</td>
+<td align="center">嵌入式操作系统提供，如USB协议和网络协议，移植后使用</td>
+<td align="center">自己实现</td>
+</tr>
+<tr>
+<td align="center">驱动程序</td>
+<td align="center">操作系统提供大部分驱动</td>
+<td align="center">自己实现</td>
+</tr>
+<tr>
+<td align="center">调试</td>
+<td align="center">交叉编译</td>
+<td align="center">专门的仿真软件在线调试</td>
+</tr>
+</tbody></table>
+<h3 id="嵌入式处理器与X86处理器比较"><a href="#嵌入式处理器与X86处理器比较" class="headerlink" title="嵌入式处理器与X86处理器比较"></a>嵌入式处理器与X86处理器比较</h3><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">嵌入式处理器</th>
+<th align="center">X86</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">应用</td>
+<td align="center">特定应用</td>
+<td align="center">家用PC&#x2F;笔记本&#x2F;服务器</td>
+</tr>
+<tr>
+<td align="center">组成</td>
+<td align="center">ALU、MMU、片内Cache、集成网卡、USB等控制器</td>
+<td align="center">ALU、MMU、片内Cache、片内资源有限</td>
+</tr>
+<tr>
+<td align="center">指令系统</td>
+<td align="center">RISC</td>
+<td align="center">CISC</td>
+</tr>
+<tr>
+<td align="center">I&#x2F;O寻址方式</td>
+<td align="center">统一编址</td>
+<td align="center">独立编址</td>
+</tr>
+<tr>
+<td align="center">系统存储</td>
+<td align="center">Flash，启动后全部加载</td>
+<td align="center">硬盘，需要时调入内存</td>
+</tr>
+<tr>
+<td align="center">软件</td>
+<td align="center">面向特定需求，小，精简</td>
+<td align="center">多样复杂全面</td>
+</tr>
+<tr>
+<td align="center">产品使用</td>
+<td align="center">嵌入设备中自动完成</td>
+<td align="center">通过人机交互实现</td>
+</tr>
+<tr>
+<td align="center">关联</td>
+<td align="center">X86常作为嵌入式系统的开发主机</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="“完整的有交互能力的嵌入式操作系统”与“与应用程序一体化的嵌入式操作系统”"><a href="#“完整的有交互能力的嵌入式操作系统”与“与应用程序一体化的嵌入式操作系统”" class="headerlink" title="“完整的有交互能力的嵌入式操作系统”与“与应用程序一体化的嵌入式操作系统”"></a>“完整的有交互能力的嵌入式操作系统”与“与应用程序一体化的嵌入式操作系统”</h3><p>“完整的有交互能力的嵌入式操作系统”，这种嵌入式操作系统有2个不可或缺的特性：<br>1.要单独安装独立运行<br>2.提供了用户接口</p>
+<p>“与应用程序一体化的嵌入式操作系统”，相对比较简单，如uC&#x2F;OS和QNX等，特点如下：<br>1.不需要单独安装独立运行<br>2.不存在提供交互能力的用户界面(Shell)<br>3.操作系统和应用程序一起形成最终可执行程序，两位一体<br>4.和单片机系统一样通过仿真器及配套软件进行开发调试</p>
+<h3 id="硬实时及软实时操作系统与嵌入式系统的实时性"><a href="#硬实时及软实时操作系统与嵌入式系统的实时性" class="headerlink" title="硬实时及软实时操作系统与嵌入式系统的实时性"></a>硬实时及软实时操作系统与嵌入式系统的实时性</h3><p>硬实时系统：必须对事件做出及时的反应，绝对不能错过事件处理的时限，比如说航天飞机的控制系统<br>软实时系统：在系统负荷较重的时候，允许发生错过时限的情况而且不会造成太大的危害，如液晶屏刷新允许有短暂的延迟</p>
+<p>在嵌入式系统中，实时性的实现依赖于嵌入式操作系统。<br>通常所有的操作系统都可以看作是支持软实时的，实时操作系统和非实时操作系统的区别在于能否支持硬实时系统。<br>具体到操作系统的实现上，<br>非实时操作系统采用基于优先级的调度算法，着重于提供高速响应和大吞吐量<br>实时操作系统使用的是调度方式简单，反应速度快的实时调度算法，首要任务是调度一切可利用的资源完成实时控制任务</p>
+<h3 id="嵌入式Linux主要特性"><a href="#嵌入式Linux主要特性" class="headerlink" title="嵌入式Linux主要特性"></a>嵌入式Linux主要特性</h3><p>1.完全免费，可以任意修改代码，兼容POSIX1.0标准，可以方便地获得第三方软硬件厂商的支持，驱动程序及其它资源丰富。</p>
+<p>2.有大量的且不断增加的开发工具，这些工具为嵌入式系统的开发提供了良好的开发环境。<br>3.有完善的网络支持，适应物联网时代。</p>
+<p>4.可以运行在多种硬件平台上，易于定制裁剪，支持包括x86在内 的几乎所有CPU芯片，可以运行在掌上电脑、机顶盒或游戏机上。</p>
+<p>5.内核小、功能强、稳定健壮、效率高、多任务，作为嵌入式开发的基础平台，还可拓展，安卓就是Linux的拓展。</p>
+<p>6.包含嵌入式浏览器、邮件程序、MP3播放器、MPEG播放器和记事本等丰富的应用程序。</p>
+<h3 id="单片机的开发模式"><a href="#单片机的开发模式" class="headerlink" title="单片机的开发模式"></a>单片机的开发模式</h3><p>主机+仿真器+仿真头+自制硬件</p>
+<p>要先进行硬件系统开发设计，自己制作硬件，<br>而后在主机(PC)上编写C语言或者汇编语言程序，为单片机系统进行软件的开发调试。<br>如果硬件平台设计发生错误，则需要重新开始这个过程。</p>
+<p>单片机系统的软件通常都比较简单，一般由单片机硬件的设计者自己编写。<br>软件开发环境由主机上的仿真软件提供。<br>调试程序时要下载到自制的目标板上的内存，仿真运行。<br>调试好的程序最终要经过烧写固化。</p>
+<p>单片机系统开发的设计难点主要在于硬件平台可能要经过不止一次的设计和实现。<br>有经验的设计者可以减少这个次数，这也是单片机系统设计更加看重经验的原因。<br>硬件的每次实现都需要一定周期，进行制版、采购芯片、焊接和调试。</p>
+<h3 id="嵌入式系统的开发模式"><a href="#嵌入式系统的开发模式" class="headerlink" title="嵌入式系统的开发模式"></a>嵌入式系统的开发模式</h3><p>主机+仿真器+硬件平台或主机通过网络通信连接至硬件平台</p>
+<p><strong>完整的嵌入式操作系统</strong>：<br>初始化时一般需要通过仿真器向硬件平台下载嵌入式操作系统的启动加载程序Bootloader<br>在通过Bootloader安装了嵌入式操作系统之后，就不再需要仿真器了<br>只需要利用网络通信(有时也可以利用USB或串口)，下载或通过网络文件系统在目标机上运行程序<br>注：一些新的嵌入式硬件平台不再提供仿真器，而是使用SD卡或USB接口</p>
+<p><strong>与应用程序一体化的操作系统</strong>：<br>开发时使用的是仿真器提供的开发环境<br>这时在整个开发过程中仿真器不可或缺<br>这种方式除了自制硬件平台被通用硬件平台代替外，与单片机系统开发类似</p>
+<p>嵌入式系统开发者的主要任务是在主机上编写基于操作系统的程序，然后通过交叉编译的方式，在嵌入式操作系统环境下调试和运行</p>
+<h3 id="个人移动设备的开发模式"><a href="#个人移动设备的开发模式" class="headerlink" title="个人移动设备的开发模式"></a>个人移动设备的开发模式</h3><p>PMD有单独的操作系统平台，使用与一般嵌入式系统类似的操作系统环境(Linux、类UNIX)<br>PMD的开发模式同样为主机-目标机模式<br>PMD并不象PC一样作为开发环境被使用，它仅是一个应用平台而不是开发平台</p>
+<h2 id="第2章-嵌入式系统硬件平台"><a href="#第2章-嵌入式系统硬件平台" class="headerlink" title="第2章 嵌入式系统硬件平台"></a>第2章 嵌入式系统硬件平台</h2><h3 id="台式机计算机与嵌入式系统硬件平台整体构架"><a href="#台式机计算机与嵌入式系统硬件平台整体构架" class="headerlink" title="台式机计算机与嵌入式系统硬件平台整体构架"></a>台式机计算机与嵌入式系统硬件平台整体构架</h3><p><strong>台式计算机硬件平台整体构架</strong><br>其中逻辑部件包括处理器，存储器，多个输入输出接口和输入输出设备。<br>处理器和存储器直接挂在总线上，I&#x2F;O设备通过I&#x2F;O接口接入总线。<br>各司其职，基本没有功能上的交叉。<br>![[Pasted image 20230412204635.png]]</p>
+<p><strong>嵌入式系统硬件平台整体构架</strong><br>嵌入式处理器内部带有存储器、NandFlash及LCD等I&#x2F;O接口，可以直接连接这类外设。<br>一些接口甚至连同外设一起被集成到芯片内部，如看门狗(watchdog)，实时时钟(RTC)等。</p>
+<p>![[Pasted image 20230412205005.png]]<br>嵌入式处理器内部有了独立的嵌入式处理器内核，有了一些被称为“控制器”的I&#x2F;O接口，<br>在处理器内部，这些部件通过内部总线连接起来，就象计算机系统一样，这正是片上系统SOC含义所在。<br>由于其中每个部件都是一个独立的IP核，也清楚地说明了SOC是基于IP核技术的。<br>由于嵌入式处理器内部提供了常用的I&#x2F;O接口，很多外部I&#x2F;O设备就可以直接与处理器相连了。<br>这样就形成了“处理器+外设”的嵌入式系统的硬件结构。<br>一方面，这种方式简化了系统的构建，降低硬件设计工作量。<br>另一方面，这种结构伸缩性强，正好可以适应嵌入式系统领域应用的多样性。</p>
+<h3 id="一体式主机板与核心式主机板"><a href="#一体式主机板与核心式主机板" class="headerlink" title="一体式主机板与核心式主机板"></a>一体式主机板与核心式主机板</h3><p><strong>一体式主机板</strong>类型会裁剪掉实际应用中不需要使用的多余功能，形成一个整体，嵌入到设备中使用。<br>这种类型的嵌入式主机板有固定的功能和应用领域，更具专用性，一般不需要再改变。<br>适合在有一定批量和通用性的嵌入式产品中使用，如PMD主机板就是这种类型的代表。</p>
+<p><strong>核心式主机板</strong>只包含核心硬件，相当于基于嵌入式处理器的最小系统，使用时通过外围板扩展功能。<br>实际嵌入到设备时，在核心板不变的请况下，通过搭配不同外围板实现嵌入式系统的不同应用需求。<br>核心式主机板适用于需要二次开发的场合，与主机板配套的外围板可以由厂家提供，也可自行开发。<br>核心式主机板上除了包含嵌入式处理器外，一般还配有内存、电子盘、常用设备和总线接口。</p>
+<h3 id="嵌入式系统内部接口与外部接口的编程模式"><a href="#嵌入式系统内部接口与外部接口的编程模式" class="headerlink" title="嵌入式系统内部接口与外部接口的编程模式"></a>嵌入式系统内部接口与外部接口的编程模式</h3><p><strong>片内接口</strong><br>片内接口的编程通过操作嵌入式处理器内部一组特殊寄存器的完成，通常被称为特殊功能寄存器SFR。<br>片内接口的使用按照嵌入式处理器规定好的方式进行，其使用可参见嵌入式处理器的数据手册。</p>
+<p><strong>片外接口</strong><br>外部接口则与外部总线相连，通过端口进行操作。<br>片外接口使用方式按照外部接口采用的接口芯片或电路进行，<br>使用时参照接口芯片的数据手册进行。</p>
+<p>![[Pasted image 20230412205830.png]]</p>
+<h3 id="了解S5PV210处理器的主要特性"><a href="#了解S5PV210处理器的主要特性" class="headerlink" title="了解S5PV210处理器的主要特性"></a>了解S5PV210处理器的主要特性</h3><p>32位RISC，使用Cortex-A8 CPU 指令集，支持MMU，指令及数据cache各32KB，512KB二级Cache</p>
+<p>芯片内置PLL，核心电压1.1V时，可运行800MHz，1.2V时，可以运行1GHz<br>内置SDRAM存储器控制器</p>
+<p>LCD 控制器，支持4K色STN和256K色TFT，带有一个LCD专用DMA<br>24 通道 DMA 控制</p>
+<p>四个UART，64字节收发缓冲区</p>
+<p>三个多主 IIC 总线，三个 IIS 总线控制器，SD&#x2F;MMC卡支持</p>
+<p>1个USB2.0 主机，1个USB2.0 OTG</p>
+<p>4 个 PWM 定时器、看门狗定时器，带日历功能的实时时钟</p>
+<p>237个通用IO，14x8矩阵键盘</p>
+<p>93个中断源，6种电源控制模式</p>
+<p>10通道12位ADC和触摸屏接口</p>
+<h3 id="与存储芯片的连接图"><a href="#与存储芯片的连接图" class="headerlink" title="与存储芯片的连接图"></a>与存储芯片的连接图</h3><p>![[Pasted image 20230412220529.png]]</p>
+<h3 id="Flash与EEPROM比较"><a href="#Flash与EEPROM比较" class="headerlink" title="Flash与EEPROM比较"></a>Flash与EEPROM比较</h3><p>Flash和EEPROM都是常用的非易失性存储技术，但Flash的容量远远超过EEPROM，二者的最主要的区别还是在读写特性上。<br>Flash在写入之前，必须要经过擦除(erase)操作，而且擦除只能以块(block)为单位，整块擦除，即使要修改一个字节的数据，也需要擦除整个块的内容；而EEPROM是可以逐字节修改的。</p>
+<h3 id="NandFlash与NorFlash比较"><a href="#NandFlash与NorFlash比较" class="headerlink" title="NandFlash与NorFlash比较"></a>NandFlash与NorFlash比较</h3><table>
+<thead>
+<tr>
+<th align="center">NandFlash</th>
+<th align="center">NorFlash</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">擦除时数据变为0xFF，写入时只能由1变0</td>
+<td align="center">擦除时数据变为0x00，写入时只能由0变1</td>
+</tr>
+<tr>
+<td align="center">读速度不如Nor flash，而擦、写速度高，容量大，价格低，有取代磁盘的趋势</td>
+<td align="center">读速度高，而擦、写速度低，容量小，价格高</td>
+</tr>
+<tr>
+<td align="center">使用地址和数据引脚构成通用的I&#x2F;O口，通过多次寻址存取数据，其读和写操作以512(或者2K)字节的页(page)为单位</td>
+<td align="center">接口时序与SRAM一样，其地址、数据及读写控制引脚能与CPU的三总线直接连接，就可以很容易地存取其内部的每一个字节</td>
+</tr>
+<tr>
+<td align="center">有单独时序，不可在其上直接运行代码</td>
+<td align="center">可在其上直接运行代码，使用简单</td>
+</tr>
+<tr>
+<td align="center">块的最大擦写次数是一百万次甚至千万次</td>
+<td align="center">而Nor的擦写次数是十万次数量级</td>
+</tr>
+<tr>
+<td align="center">发生位交换错误的次数多，需要使用ECC校验算法 ，需要初始化扫描，标记坏块</td>
+<td align="center">位交换发生次数远远少于NandFlash</td>
+</tr>
+</tbody></table>
+<h3 id="NandFlash的控制引脚信号"><a href="#NandFlash的控制引脚信号" class="headerlink" title="NandFlash的控制引脚信号"></a>NandFlash的控制引脚信号</h3><p>命令锁存引脚CLE<br>芯片写引脚nWE<br>地址锁存引脚ALE<br>芯片读引脚nRE<br>芯片使能引脚nCE<br>就绪&#x2F;忙引脚R&#x2F;nB<br>数据&#x2F;命令&#x2F;地址输入输出引脚I&#x2F;O0~I&#x2F;O7</p>
+<h3 id="S5PV210支持的6种电源模式"><a href="#S5PV210支持的6种电源模式" class="headerlink" title="S5PV210支持的6种电源模式"></a>S5PV210支持的6种电源模式</h3><p>处理器有6种电源模 式，可起到降低功耗的作用：<br>NORMAL：工作模式<br>IDLE：空闲模式<br>DEEPIDLE：深度空闲模式<br>STOP：停止模式<br>DEEPSTOP：深度停止模式<br>SLEEP：休眠模式</p>
+<h3 id="S5PV210的3个主要的GPIO特殊功能寄存器功能"><a href="#S5PV210的3个主要的GPIO特殊功能寄存器功能" class="headerlink" title="S5PV210的3个主要的GPIO特殊功能寄存器功能"></a>S5PV210的3个主要的GPIO特殊功能寄存器功能</h3><p>常用的是前三个寄存器:<br>GPJ2CON：配置引脚为输入&#x2F;输出或其它功能<br>GPJ2DAT：装入准备输出或输入的数据，其值为7位[7:0]<br>GPJ2PUP：为10时对应引脚设置为禁止，01下拉，10上拉，其值为16位[15:0]</p>
+<h3 id="S5PV210内部的定时器逻辑结构图"><a href="#S5PV210内部的定时器逻辑结构图" class="headerlink" title="S5PV210内部的定时器逻辑结构图"></a>S5PV210内部的定时器逻辑结构图</h3><p>![[Pasted image 20230413133411.png]]</p>
+<h3 id="S5PV210定时器输出频率计算"><a href="#S5PV210定时器输出频率计算" class="headerlink" title="S5PV210定时器输出频率计算"></a>S5PV210定时器输出频率计算</h3><p>$$定时器输入时钟频率f{Tclk}&#x3D;\frac{f_{PCLK}}{预分频值+1}×分频值$$<br>$$PWM输出时钟频率&#x3D;\frac {f<br>{Tclk}}{T{CNTBn}}$$<br>$$PWM输出信号占空比&#x3D;\frac{TCMPBn}   {TCNTBn}$$<br>![[Pasted image 20230413163438.png]]</p>
+<h3 id="S5PV210的-UART引脚信号"><a href="#S5PV210的-UART引脚信号" class="headerlink" title="S5PV210的 UART引脚信号"></a>S5PV210的 UART引脚信号</h3><p>S5PV210有4个UART(通用异步串行口)，<br>4个UART都可以在中断和DMA两种模式下进行收发，<br>都有遵从1.0规范的红外传输功能，<br>UART0有256字节的缓冲区，UART1有64字节缓冲区，UART2、3有16字节缓冲区，<br>接收器具有错误检测功能，可以检测出溢出错误，奇偶校验错误，帧错误和中止状况，每种情况下都会将一个错误标志在接收状态寄存器置位。</p>
+<p>S5PV210的UART数据帧格式可通过线路控制寄存器(ULCONn)来编程设置</p>
+<p>数据帧包含1个开始位、5到8个数据位、1个可选的奇偶校验位、1个或2个停止位。</p>
+<table>
+<thead>
+<tr>
+<th>开始位</th>
+<th>数据位(5-8)</th>
+<th>奇偶校验位</th>
+<th>停止位(1-2)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>常设置成8N1(8数据有效位，无奇偶校验，1停止位)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="S5PV210的-UART-波特率计算"><a href="#S5PV210的-UART-波特率计算" class="headerlink" title="S5PV210的 UART 波特率计算"></a>S5PV210的 UART 波特率计算</h3><p>UARTn的波特率取决于对应的波特率除数寄存器UBRDIVn的值<br>$$UBRDIVn&#x3D;(int)(CLK&#x2F;(bps<em>16))-1$$<br>CLK：所选择时钟源的频率       bps：波特率<br>如果波特率为115200bps且其时钟源PCLK 为40MHz<br>$$UBRDIVn &#x3D; (int)(40000000)&#x2F;(115200</em>16))-1<br>        &#x3D; (int)(21.7)-1 &#x3D; 21-1 &#x3D; 20$$<br>由于四舍五入的关系，实际波特率与理想波特率之间存在误差，实际使用时，传输10位数据的时间误差应该小于1.87％(3&#x2F;160)</p>
+<h3 id="S5PV210的-LCD裸屏控制信号"><a href="#S5PV210的-LCD裸屏控制信号" class="headerlink" title="S5PV210的 LCD裸屏控制信号"></a>S5PV210的 LCD裸屏控制信号</h3><p>![[Pasted image 20230413180137.png]]</p>
+<h3 id="S5PV210的-A-x2F-D转换与触摸屏接口逻辑结构"><a href="#S5PV210的-A-x2F-D转换与触摸屏接口逻辑结构" class="headerlink" title="S5PV210的 A&#x2F;D转换与触摸屏接口逻辑结构"></a>S5PV210的 A&#x2F;D转换与触摸屏接口逻辑结构</h3><p>![[Pasted image 20230413181221.png]]</p>
+<h3 id="S5PV210的-IIC总线信号"><a href="#S5PV210的-IIC总线信号" class="headerlink" title="S5PV210的 IIC总线信号"></a>S5PV210的 IIC总线信号</h3><p>IIC(Inter-Integrated Circuit)，也写做I2C，即集成电路总线，是为实现在器件间进行简单的消息传递而设计的。</p>
+<p>IIC总线只需要2个引脚，即串行数据线SDA和串行时钟线SCL。<br>总线空闲时，SDA和SCL为高电平。<br>启动数据传输时SCL保持为高，SDA由高变低，停止数据传输时SCL为高，SDA由低变高。<br>数据传输时，SCL为高期间，SDA必须保持稳定，数据的改变必须在SCL为低时完成， 时钟上升沿采集数据。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dg4y1H773/?spm_id_from=333.337.search-card.all.click&vd_source=62552d67d8de63c74ce35658499bc372">4分钟看懂！I2C通讯协议 最简单的总线通讯！_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<p>Mini210s上的利用3路IIC连接了7种不同外设</p>
+<h3 id="S5PV210的-SPI接口信号"><a href="#S5PV210的-SPI接口信号" class="headerlink" title="S5PV210的 SPI接口信号"></a>S5PV210的 SPI接口信号</h3><p>SPI(Serial Peripheral Interface)串行外围设备接口,是处理器与外设芯片间一种高速、低成本、易使用的全双工同步串行总线<br>SPI以主从方式工作，通常有一个主设备和一个或多个从设备<br>S5PV210最多可配置2个高速SPI接口：<br>MOSI：主设备数据输出，从设备数据输入<br>MISO：主设备数据输入，从设备数据输出<br>SCLK：用来为数据通信提供同步时钟信号，由主设备产生<br>CSn：从设备使能信号，由主设备控制</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1F54y1M7e7/?spm_id_from=333.788.recommend_more_video.0&vd_source=62552d67d8de63c74ce35658499bc372">深入理解SPi通讯协议，5分钟看懂！_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<h3 id="S5PV210的-SD主机控制器接口信号"><a href="#S5PV210的-SD主机控制器接口信号" class="headerlink" title="S5PV210的 SD主机控制器接口信号"></a>S5PV210的 SD主机控制器接口信号</h3><p>![[Pasted image 20230414002508.png]]<br>![[Pasted image 20230414002153.png]]</p>
+<h3 id="要进行嵌入式系统调试的几种情况"><a href="#要进行嵌入式系统调试的几种情况" class="headerlink" title="要进行嵌入式系统调试的几种情况"></a>要进行嵌入式系统调试的几种情况</h3><p>1.通过JTAG小板或仿真器烧写启动代码<br>2.通过仿真器调试无操作系统的简单应用程序<br>3.通过仿真器调试操作系统与应用程序一体化的嵌入式系统<br>4.无法装入操作系统时通过仿真器调试硬件故障  </p>
+<h3 id="嵌入式调试硬件连接图"><a href="#嵌入式调试硬件连接图" class="headerlink" title="嵌入式调试硬件连接图"></a>嵌入式调试硬件连接图</h3><p>![[Pasted image 20230414002336.png]]</p>
+<h3 id="JTAG主要引脚信号"><a href="#JTAG主要引脚信号" class="headerlink" title="JTAG主要引脚信号"></a>JTAG主要引脚信号</h3><p>IEEE1149.1规定了JTAG的引脚信号，最主要的信号有4个：<br>TCK：时钟信号，输入<br>TMS：模式选择信号，输入，控制状态机的转换<br>TDI：数据输入信号<br>TDO：数据输出信号</p>
+<h3 id="JTAG小板和仿真器-并口-的比较"><a href="#JTAG小板和仿真器-并口-的比较" class="headerlink" title="JTAG小板和仿真器(并口)的比较"></a>JTAG小板和仿真器(并口)的比较</h3><p>1.仿真器具有性能优势，JTAG小板下载文件所需的时间是仿真器的6倍以上</p>
+<p>2.仿真器内部拥有存储器等资源，调试时不再利用系统除了边界扫描寄存器外的任何其他<br>资源(尤其是目标机CPU)，JTAG小板内部无资源 </p>
+<p>3.仿真器的价格一般在千元左右，JTAG小板的价格一般在百元左右，存在将近10倍的差别</p>
+<p>4.在与目标板的兼容方面，简易JTAG能够与多个调试软件兼容，而仿真器只能使用专门的调试软件，具有一定的局限性</p>
+<p>5.通常JTAG小板用于烧写Flash,仿真器则用于单片机式的计算机系统调试<br>过去，JTAG烧写flash使用的都是这种方式，近来，由于台式机不再提供并口支持，也开始直接使用仿真器进行烧写</p>
+<h2 id="第3章-Linux开发环境"><a href="#第3章-Linux开发环境" class="headerlink" title="第3章 Linux开发环境"></a>第3章 Linux开发环境</h2><h3 id="Linux被称为“GNU-x2F-Linux”的原因"><a href="#Linux被称为“GNU-x2F-Linux”的原因" class="headerlink" title="Linux被称为“GNU&#x2F;Linux”的原因"></a>Linux被称为“GNU&#x2F;Linux”的原因</h3><p>Linux只是一个内核，GNU软件为Linux操作系统的开发创造了一个合适的环境，因此Linux操作系统被称为“GNU&#x2F;Linux”</p>
+<h3 id="Linux的文件权限"><a href="#Linux的文件权限" class="headerlink" title="Linux的文件权限"></a>Linux的文件权限</h3><p>文件权限设定命令chmod</p>
+<pre><code class="hljs">chmod [-R] mode name
+</code></pre>
+<p>其中，-R将指定目录及其子目录下面的所有文件，name为文件名或目录名。  </p>
+<p>mode: 3个(文件拥有者u、组g、其他用户o、以上所有a)<br>8进制数字或rwx的组合<br>chmod 755 dir1，chmod u+x file2<br>chmod o-r file3，chmod a+x file4</p>
+<blockquote>
+<p>详见<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-chmod.html">Linux chmod 命令 | 菜鸟教程 (runoob.com)</a></p>
+</blockquote>
+<h3 id="gcc编译命令及选项的使用"><a href="#gcc编译命令及选项的使用" class="headerlink" title="gcc编译命令及选项的使用"></a>gcc编译命令及选项的使用</h3><p>![[Pasted image 20230414170429.png]]</p>
+<p>| 编译目标| 编译命令|<br>| :—–:| :—-: | :—-: |<br>|hello.c| | |<br>|hello.i    |         gcc -E -o hello.i hello.c||<br>|hello.s    |         gcc -S  -o hello.s hello.i     |     gcc -S -o hello.s hello.c  |<br>|hello.o   |         gcc -c -o hello.o hello.s      |    gcc -c -o hello.o hello.c|<br>|hello     |          gcc -o hello hello.o            |     gcc -o hello hello.c |</p>
+<h3 id="编译工具链的组成"><a href="#编译工具链的组成" class="headerlink" title="编译工具链的组成"></a>编译工具链的组成</h3><p>![[Pasted image 20230414172550.png]]</p>
+<p><strong>GCC编译器</strong>：GNU的c和c++编译器，如gcc-2.95.3.tar.gz<br>gcc是编译的前端程序，编译时可依次调用cpp、cc1、as等工具完成编译。<br>gcc具有丰富的命令选项，如-o,-c,-L(指定库所在目录),-l(指定库文件),-I指定头文件目录),O(指定编译时的优化级别)等。</p>
+<p><strong>binutils二进制工具</strong>：主要包括链接器ld，汇编代码编译器as，库管理器ar等工具，如binutils-2.11.2.tar.gz。</p>
+<p><strong>glibc库函数</strong>：C函数库和Linux的线程库，如glibc-2.2.3.tar.gz和glibc-linuxthreads-2.2.3.tar.gz。</p>
+<h3 id="共享函数库与静态函数库比较"><a href="#共享函数库与静态函数库比较" class="headerlink" title="共享函数库与静态函数库比较"></a>共享函数库与静态函数库比较</h3><p>分为静态函数库和共享函数库：<br>1 静态函数库：用.a作为文件的后缀，生成目标代码时会被加入到其中，生成代码体积大，速度快。<br>2 共享函数库：存放可执行程序在运行的时候才会被加载的函数，生成代码可以共享，便于升级<br>函数库名字必须lib作为前缀，后缀是.so(.a)及版本号信息， 如libgui.so.1。</p>
+<h3 id="简单makefile文件编写"><a href="#简单makefile文件编写" class="headerlink" title="简单makefile文件编写"></a>简单makefile文件编写</h3><p>Makefile规则的一般形式如下：</p>
+<pre><code class="hljs">target：dependency dependency
+(tab)&lt;command&gt; 
+</code></pre>
+<p>通常target即make最终需要创建的文件，但也可以是要执行的动作，如“clean”。<br>dependency列表，通常是编译目标文件所需要的其他文件。<br>command是创建target文件所需要执行的步骤，比如编译命令，每个命令占一行，起始字符必须为TAB字符。</p>
+<p>example：</p>
+<pre><code class="hljs">test：prog.o code.o
+    gcc –o test prog.o code.o
+ prog.o：prog.c prog.h code.h
+    gcc –c prog.c –o prog.o
+ code.o：code.c code.h
+    gcc –c code.c –o code.o
+ clean：
+    rm –f *.o test
+</code></pre>
+<p>左图的makefile文件中共定义了四个目标：test、prog.o、code.o和clean。<br>目标文件与依赖文件用”:”分隔，多个依赖文件以空格隔开，然后另起一行以tab开头给出实现目标的命令。<br>当命令过长时，使用”&quot;作为续行符。</p>
+<p>在一行的开始给初变量名字，后面跟一个”:&#x3D;”及要设定的值，即可定义变量：</p>
+<pre><code class="hljs">VARNAME:=string
+</code></pre>
+<p>使用时把变量用括号括起来，并在前面加上  <code>$:</code>      <code>$&#123;VARNAME&#125;</code><br>例：</p>
+<pre><code class="hljs">OBJS:=prog.o code.o
+CC:=gcc
+test：$&#123; OBJS &#125;
+    $&#123; CC &#125; –o test $&#123; OBJS &#125;
+prog.o：prog.c prog.h code.h
+    $&#123; CC &#125; –c prog.c –o prog.o
+code.o：code.c code.h
+    $&#123; CC &#125; –c code.c –o code.o
+clean：
+    rm –f $&#123; OBJS &#125; test
+</code></pre>
+<h3 id="Shell中的位置参数与shift命令"><a href="#Shell中的位置参数与shift命令" class="headerlink" title="Shell中的位置参数与shift命令"></a>Shell中的位置参数与shift命令</h3><h4 id="位置参数"><a href="#位置参数" class="headerlink" title="位置参数"></a>位置参数</h4><p>由出现在命令行上的位置确定的参数称做位置参数。<br>总共有十个位置参数，其对应的名称依次是$0,$1,$2,…$9，其中$0表示命令名或Shell脚本名，不可或缺，其它位置参数可有可无。</p>
+<p>编辑ison脚本文件内容如下：</p>
+<pre><code class="hljs">who | grep $1
+</code></pre>
+<p>执行：</p>
+<pre><code class="hljs">$   chmod +x ison
+$ ./ison bc
+</code></pre>
+<p>shell会用bc代替$1，输出：</p>
+<pre><code class="hljs"> who | grep bc
+</code></pre>
+<h4 id="shift命令"><a href="#shift命令" class="headerlink" title="shift命令"></a>shift命令</h4><p>shift命令的作用是把位置参数左移，原来$1中的值丢失（$0不变），参数变量的个数自动减1。<br>编辑shiftdemo程序如下：</p>
+<pre><code class="hljs">echo $# $*
+shift
+echo $# $*    
+shift
+echo $# $*
+shift
+echo $# $*
+</code></pre>
+<p>执行： </p>
+<pre><code class="hljs">chmod +x shiftdemo
+./shiftdemo a b c
+</code></pre>
+<p>输出：</p>
+<pre><code class="hljs">$./shiftdemo a b c
+3 a b c
+2 b c
+1 c
+0
+$
+</code></pre>
+<h3 id="简单shell程序编写"><a href="#简单shell程序编写" class="headerlink" title="简单shell程序编写"></a>简单shell程序编写</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-shell.html">https://www.runoob.com/linux/linux-shell.html</a></p>
+<h2 id="第4章-嵌入式Linux开发环境"><a href="#第4章-嵌入式Linux开发环境" class="headerlink" title="第4章 嵌入式Linux开发环境"></a>第4章 嵌入式Linux开发环境</h2><h3 id="NFS的设定与作用"><a href="#NFS的设定与作用" class="headerlink" title="NFS的设定与作用"></a>NFS的设定与作用</h3><p>对于嵌入式系统调试，使用NFS非常方便，程序可以存放在主机上，被目标机上的Arm linux访问，省去了烧录和下载的过程。</p>
+<p>NFS目录在主机的etc&#x2F;exports中指定，NFS可以在目标机linux启动后，通过mount使用，使用结束时需卸载。（如umount &#x2F;mnt）</p>
+<h3 id="嵌入式Linux在NandFlash中的存储内容分布"><a href="#嵌入式Linux在NandFlash中的存储内容分布" class="headerlink" title="嵌入式Linux在NandFlash中的存储内容分布"></a>嵌入式Linux在NandFlash中的存储内容分布</h3><p>![[Pasted image 20230414200816.png]]</p>
+<h3 id="台式计算机与嵌入式系统中的BootLoader"><a href="#台式计算机与嵌入式系统中的BootLoader" class="headerlink" title="台式计算机与嵌入式系统中的BootLoader"></a>台式计算机与嵌入式系统中的BootLoader</h3><p>![[Pasted image 20230414201111.png]]</p>
+<h3 id="linux配置内核的命令及使用"><a href="#linux配置内核的命令及使用" class="headerlink" title="linux配置内核的命令及使用"></a>linux配置内核的命令及使用</h3><p>linux配置内核常用2个不同命令中的一个</p>
+<pre><code class="hljs">make menuconfig  #不带图形界面
+make xconfig(gconfig)  #带图形界面
+</code></pre>
+<p>嵌入式linux内核配置通常使用第一个命令，pc linux内核则通常使用第二个命令(需配置对应图形库)<br>命令执行的结果是产生一个 .config文件，并在编译过程中使其中定义的所有CONFIG_XXX起全局作用，根据这个生成不同的内核。<br>![[Pasted image 20230414204937.png]]</p>
+<h3 id="什么是根文件系统"><a href="#什么是根文件系统" class="headerlink" title="什么是根文件系统"></a>什么是根文件系统</h3><p>Linux启动时挂载为根目录的文件系统，被称为根文件系统，是Linux不可或缺的组成部分。<br>根文件系统的具体形式就是就是我们平时看到的linux目录。<br>嵌入式系统常用的文件系统类型为cramfs和yaffs，根文件系统通常为cramfs。<br>mini210s使用了yaffs2文件系统。</p>
+<h3 id="mini210s烧写的Linux过程，以及需要那些文件"><a href="#mini210s烧写的Linux过程，以及需要那些文件" class="headerlink" title="mini210s烧写的Linux过程，以及需要那些文件"></a>mini210s烧写的Linux过程，以及需要那些文件</h3><p>解压根文件系统：</p>
+<pre><code class="hljs">tar xvzf /home/mini210s/Linux/rootfs_qtopia_qt4-20141212.tgz
+</code></pre>
+<p>解压的根文件系统目录为：&#x2F;opt&#x2F;FriendlyARM&#x2F;mini210&#x2F;linux&#x2F;rootfs_mini210<br>解压制作根文件系统镜像的工具：</p>
+<pre><code class="hljs">tar xvzf mktools-20200519.tar.gz -C /
+</code></pre>
+<p>如需更改，我们可以更改该目录内容，并为其制作根文件系统镜像：</p>
+<pre><code class="hljs">cd /opt/FriendlyARM/mini210/linux/
+mkyaffs2image-128M rootfs_mini210 rootfs_qtopia_qt4.img       //版本一
+mkyaffs2image_4k rootfs_mini210 rootfs_qtopia_qt4-slc4k.img  //版本二
+</code></pre>
+<p>最后将生成的 rootfs_***.img 替换掉 SD卡 images&#x2F;Linux&#x2F;下的同名文件，再烧写到开发板即可</p>
+<h2 id="第5章-控制嵌入式系统硬件"><a href="#第5章-控制嵌入式系统硬件" class="headerlink" title="第5章 控制嵌入式系统硬件"></a>第5章 控制嵌入式系统硬件</h2><h3 id="基于嵌入式linux的硬件控制编程流程图"><a href="#基于嵌入式linux的硬件控制编程流程图" class="headerlink" title="基于嵌入式linux的硬件控制编程流程图"></a>基于嵌入式linux的硬件控制编程流程图</h3><p>![[Pasted image 20230414205233.png]]</p>
+<h3 id="Linux驱动程序与应用程序区别"><a href="#Linux驱动程序与应用程序区别" class="headerlink" title="Linux驱动程序与应用程序区别"></a>Linux驱动程序与应用程序区别</h3><h4 id="应用程序"><a href="#应用程序" class="headerlink" title="应用程序"></a>应用程序</h4><p>应用程序是一个进程，编程从主函数main()开始，主函数main()返回即是进程结束。</p>
+<h4 id="驱动程序"><a href="#驱动程序" class="headerlink" title="驱动程序"></a>驱动程序</h4><p>驱动程序是一系列内核函数。驱动程序包含了一些函数，是内核的一部分，如open()、close()、read()、write()。这些函数由内核在适当的时候来调用，可以用来完成硬件访问等操作。</p>
+<h3 id="加载Linux驱动程序的两种方式"><a href="#加载Linux驱动程序的两种方式" class="headerlink" title="加载Linux驱动程序的两种方式"></a>加载Linux驱动程序的两种方式</h3><h4 id="1-驱动程序直接编译入内核"><a href="#1-驱动程序直接编译入内核" class="headerlink" title="1 驱动程序直接编译入内核"></a>1 驱动程序直接编译入内核</h4><p>在内核启动时就已经在内存中<br>可以保留专用存储器空间</p>
+<h4 id="2-驱动程序以模块形式存储在文件系统里，需要时动态载入内核"><a href="#2-驱动程序以模块形式存储在文件系统里，需要时动态载入内核" class="headerlink" title="2 驱动程序以模块形式存储在文件系统里，需要时动态载入内核"></a>2 驱动程序以模块形式存储在文件系统里，需要时动态载入内核</h4><p>按需加载，不用时节省内存<br>相对独立于内核，升级灵活<br>授权方式灵活  </p>
+<h3 id="Linux下编译和链接生成的默认文件名是什么？"><a href="#Linux下编译和链接生成的默认文件名是什么？" class="headerlink" title="Linux下编译和链接生成的默认文件名是什么？"></a>Linux下编译和链接生成的默认文件名是什么？</h3><p>a.out</p>
+<h3 id="Linux驱动程序编程"><a href="#Linux驱动程序编程" class="headerlink" title="Linux驱动程序编程"></a>Linux驱动程序编程</h3><p>![[Pasted image 20230414212306.png]]<br>![[Pasted image 20230414212320.png]]<br>![[Pasted image 20230414212333.png]]<br>![[Pasted image 20230414212349.png]]<br>![[Pasted image 20230414212406.png]]<br>![[Pasted image 20230414212429.png]]<br>![[Pasted image 20230414212442.png]]<br>![[Pasted image 20230414212550.png]]<br>![[Pasted image 20230414212605.png]]<br>![[Pasted image 20230414212617.png]]</p>
+<h3 id="简述串口程序设计主要流程"><a href="#简述串口程序设计主要流程" class="headerlink" title="简述串口程序设计主要流程"></a>简述串口程序设计主要流程</h3><p>1.利用台式计算机，使用串口调试工具测试<br>正确设备电源及串行通信线，正确配置串口通信参数</p>
+<p>2.连入嵌入式设备，使用串口通信程序测试<br>基于Linux的串口收发程序，或直接基于串口寄存器的串口通信程序(支持中断)</p>
+<p>3.基于通信协议，编写编解码程序<br>要发送的数据需要编码，要接收的数据需要解码</p>
+<p>4.基于串口通信数据的应用程序设计<br>使用图形用户界面完成对设备的控制，将采集数据可视化显示</p>
+<h2 id="第6章-嵌入式系统应用编程"><a href="#第6章-嵌入式系统应用编程" class="headerlink" title="第6章 嵌入式系统应用编程"></a>第6章 嵌入式系统应用编程</h2><h3 id="使用命令生成QT程序的步骤及作用"><a href="#使用命令生成QT程序的步骤及作用" class="headerlink" title="使用命令生成QT程序的步骤及作用"></a>使用命令生成QT程序的步骤及作用</h3><p>使用命令行方式编译ARM的QT程序方法：<br>    # cd &#x2F;home&#x2F;mini210s&#x2F;qt&#x2F;helloworld<br>    # &#x2F;usr&#x2F;local&#x2F;Trolltech&#x2F;QtEmbedded-4.8.5-arm&#x2F;bin&#x2F;qmake -project<br>    # &#x2F;usr&#x2F;local&#x2F;Trolltech&#x2F;QtEmbedded-4.8.5-arm&#x2F;bin&#x2F;qmake<br>    # make<br>    # cp helloworld &#x2F;opt&#x2F;FriendlyARM&#x2F;mini210&#x2F;linux	&#x2F;&#x2F;复制到NFS目录</p>
+<p>生成可执行文件helloworld，需要在目标机上运行，命令为：<br>    # source setqt4env	&#x2F;&#x2F;设置QT程序执行需要环境变量<br>    # mount -t nfs -o nolock,rsize&#x3D;1024,wsize&#x3D;1024 192.168.1.128:&#x2F;opt&#x2F;FriendlyARM&#x2F;mini210&#x2F;linux &#x2F;mnt<br>    # cd &#x2F;mnt<br>    # .&#x2F;helloworld -qws</p>
+<h3 id="理解QT主程序"><a href="#理解QT主程序" class="headerlink" title="理解QT主程序"></a>理解QT主程序</h3>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E7%A2%8E%E7%89%87/">#技术碎片</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>嵌入式系统原理课程串讲复习</div>
+      <div>http://example.com/2023/04/14/embedded_review/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>The_18th</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年4月14日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/03/15/robotics_homework/" title="机器人学大作业">
+                        <span class="hidden-mobile">机器人学大作业</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
