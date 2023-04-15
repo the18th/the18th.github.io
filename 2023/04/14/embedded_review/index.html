@@ -24,7 +24,7 @@
 <meta property="og:description" content="本文旨在记录HIT嵌入式系统原理课程相关资料">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-14T14:48:40.000Z">
-<meta property="article:modified_time" content="2023-04-14T14:50:15.644Z">
+<meta property="article:modified_time" content="2023-04-15T11:47:11.428Z">
 <meta property="article:author" content="The_18th">
 <meta property="article:tag" content="技术碎片">
 <meta name="twitter:card" content="summary_large_image">
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k 字
+          13k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          103 分钟
+          105 分钟
         
       </span>
     
@@ -277,7 +277,7 @@
 <span id="more"></span>
 <p>授课老师：吕为工</p>
 <h2 id="第1章-嵌入式系统基础"><a href="#第1章-嵌入式系统基础" class="headerlink" title="第1章 嵌入式系统基础"></a>第1章 嵌入式系统基础</h2><h3 id="嵌入式系统的一般定义"><a href="#嵌入式系统的一般定义" class="headerlink" title="嵌入式系统的一般定义"></a>嵌入式系统的一般定义</h3><p>是指以应用为中心、以计算机技术为基础、软件硬件可裁剪、适应应用系统对功能、可靠性、成本、体积、功耗严格要求的专用计算机系统。</p>
-<h3 id="嵌入式系统的组成、嵌入式系统的特点"><a href="#嵌入式系统的组成、嵌入式系统的特点" class="headerlink" title="嵌入式系统的组成、嵌入式系统的特点"></a>嵌入式系统的组成、嵌入式系统的特点</h3><p>组成：就像一般的计算机系统包括软件和硬件一样，嵌入式系统是由嵌入式硬件和嵌入式软件组成。<br>特点：<br>1.适应不同的应用场合，个性化很强，软件一般要针对硬件进行移植，追求的是专用而不是通用，这也是嵌入式系统开发周期较长的根本原因<br>2.一般工作在资源有限的环境中，对功耗、体积等都有着特定的要求，其功能的设计及实现一般不会太复杂<br>3.应用场合多种多样，功能纷繁复杂，无法按照某一标准定制<br>4.通常有各自专门的开发工具和环境<br>5应用软件很多时候会和操作系统结合在一起，对代码质量和效率要求很高.<br>6.使用嵌入式操作系统，而嵌入式操作系统通常要求内核小、可裁剪、多任务，一些应用场合还对可靠性实时性有着极高的要求</p>
+<h3 id="嵌入式系统的组成、嵌入式系统的特点"><a href="#嵌入式系统的组成、嵌入式系统的特点" class="headerlink" title="嵌入式系统的组成、嵌入式系统的特点"></a>嵌入式系统的组成、嵌入式系统的特点</h3><p>组成：就像一般的计算机系统包括软件和硬件一样，嵌入式系统是由<strong>嵌入式硬件和嵌入式软件</strong>组成。<br>特点：<br>1.适应不同的应用场合，个性化很强，软件一般要针对硬件进行移植，追求的是<strong>专用而不是通用</strong>，这也是嵌入式系统<strong>开发周期较长</strong>的根本原因<br>2.一般工作在<strong>资源有限的环境</strong>中，对<strong>功耗、体积等都有着特定的要求</strong>，其<strong>功能的设计及实现一般不会太复杂</strong>。<br>3.<strong>应用场合多种多样，功能纷繁复杂</strong>，无法按照某一标准定制。<br>4.通常有各自<strong>专门的开发工具和环境</strong>。<br>5.应用软件很多时候会和操作系统结合在一起，对<strong>代码质量和效率要求很高</strong>。<br>6.使用嵌入式操作系统，而嵌入式操作系统通常要求内核小、可裁剪、多任务，一些应用场合还对可靠性实时性有着极高的要求</p>
 <h3 id="嵌入式系统与台式计算机硬件平台比较"><a href="#嵌入式系统与台式计算机硬件平台比较" class="headerlink" title="嵌入式系统与台式计算机硬件平台比较"></a>嵌入式系统与台式计算机硬件平台比较</h3><table>
 <thead>
 <tr>
@@ -371,7 +371,7 @@
 <tr>
 <th align="center">名称</th>
 <th align="center">嵌入式系统</th>
-<th align="center">台式计算机</th>
+<th align="center">单片机</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -420,7 +420,7 @@
 <tr>
 <th align="center">名称</th>
 <th align="center">嵌入式系统</th>
-<th align="center">台式计算机</th>
+<th align="center">单片机</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -511,17 +511,18 @@
 <h3 id="“完整的有交互能力的嵌入式操作系统”与“与应用程序一体化的嵌入式操作系统”"><a href="#“完整的有交互能力的嵌入式操作系统”与“与应用程序一体化的嵌入式操作系统”" class="headerlink" title="“完整的有交互能力的嵌入式操作系统”与“与应用程序一体化的嵌入式操作系统”"></a>“完整的有交互能力的嵌入式操作系统”与“与应用程序一体化的嵌入式操作系统”</h3><p>“完整的有交互能力的嵌入式操作系统”，这种嵌入式操作系统有2个不可或缺的特性：<br>1.要单独安装独立运行<br>2.提供了用户接口</p>
 <p>“与应用程序一体化的嵌入式操作系统”，相对比较简单，如uC&#x2F;OS和QNX等，特点如下：<br>1.不需要单独安装独立运行<br>2.不存在提供交互能力的用户界面(Shell)<br>3.操作系统和应用程序一起形成最终可执行程序，两位一体<br>4.和单片机系统一样通过仿真器及配套软件进行开发调试</p>
 <h3 id="硬实时及软实时操作系统与嵌入式系统的实时性"><a href="#硬实时及软实时操作系统与嵌入式系统的实时性" class="headerlink" title="硬实时及软实时操作系统与嵌入式系统的实时性"></a>硬实时及软实时操作系统与嵌入式系统的实时性</h3><p>硬实时系统：必须对事件做出及时的反应，绝对不能错过事件处理的时限，比如说航天飞机的控制系统<br>软实时系统：在系统负荷较重的时候，允许发生错过时限的情况而且不会造成太大的危害，如液晶屏刷新允许有短暂的延迟</p>
-<p>在嵌入式系统中，实时性的实现依赖于嵌入式操作系统。<br>通常所有的操作系统都可以看作是支持软实时的，实时操作系统和非实时操作系统的区别在于能否支持硬实时系统。<br>具体到操作系统的实现上，<br>非实时操作系统采用基于优先级的调度算法，着重于提供高速响应和大吞吐量<br>实时操作系统使用的是调度方式简单，反应速度快的实时调度算法，首要任务是调度一切可利用的资源完成实时控制任务</p>
+<p>在嵌入式系统中，实时性的实现依赖于嵌入式操作系统。<br>通常所有的操作系统都可以看作是支持软实时的，实时操作系统和非实时操作系统的区别在于能否支持硬实时系统。<br>具体到操作系统的实现上，<br><strong>非实时操作系统采用基于优先级的调度算法，着重于提供高速响应和大吞吐量</strong><br><strong>实时操作系统使用的是调度方式简单，反应速度快的实时调度算法</strong>，首要任务是调度一切可利用的资源完成实时控制任务</p>
 <h3 id="嵌入式Linux主要特性"><a href="#嵌入式Linux主要特性" class="headerlink" title="嵌入式Linux主要特性"></a>嵌入式Linux主要特性</h3><p>1.完全免费，可以任意修改代码，兼容POSIX1.0标准，可以方便地获得第三方软硬件厂商的支持，驱动程序及其它资源丰富。</p>
-<p>2.有大量的且不断增加的开发工具，这些工具为嵌入式系统的开发提供了良好的开发环境。<br>3.有完善的网络支持，适应物联网时代。</p>
+<p>2.有大量的且不断增加的开发工具，这些工具为嵌入式系统的开发提供了良好的开发环境。</p>
+<p>3.有完善的网络支持，适应物联网时代。</p>
 <p>4.可以运行在多种硬件平台上，易于定制裁剪，支持包括x86在内 的几乎所有CPU芯片，可以运行在掌上电脑、机顶盒或游戏机上。</p>
 <p>5.内核小、功能强、稳定健壮、效率高、多任务，作为嵌入式开发的基础平台，还可拓展，安卓就是Linux的拓展。</p>
 <p>6.包含嵌入式浏览器、邮件程序、MP3播放器、MPEG播放器和记事本等丰富的应用程序。</p>
-<h3 id="单片机的开发模式"><a href="#单片机的开发模式" class="headerlink" title="单片机的开发模式"></a>单片机的开发模式</h3><p>主机+仿真器+仿真头+自制硬件</p>
+<h3 id="单片机的开发模式"><a href="#单片机的开发模式" class="headerlink" title="单片机的开发模式"></a>单片机的开发模式</h3><p><strong>主机+仿真器+仿真头+自制硬件</strong></p>
 <p>要先进行硬件系统开发设计，自己制作硬件，<br>而后在主机(PC)上编写C语言或者汇编语言程序，为单片机系统进行软件的开发调试。<br>如果硬件平台设计发生错误，则需要重新开始这个过程。</p>
 <p>单片机系统的软件通常都比较简单，一般由单片机硬件的设计者自己编写。<br>软件开发环境由主机上的仿真软件提供。<br>调试程序时要下载到自制的目标板上的内存，仿真运行。<br>调试好的程序最终要经过烧写固化。</p>
 <p>单片机系统开发的设计难点主要在于硬件平台可能要经过不止一次的设计和实现。<br>有经验的设计者可以减少这个次数，这也是单片机系统设计更加看重经验的原因。<br>硬件的每次实现都需要一定周期，进行制版、采购芯片、焊接和调试。</p>
-<h3 id="嵌入式系统的开发模式"><a href="#嵌入式系统的开发模式" class="headerlink" title="嵌入式系统的开发模式"></a>嵌入式系统的开发模式</h3><p>主机+仿真器+硬件平台或主机通过网络通信连接至硬件平台</p>
+<h3 id="嵌入式系统的开发模式"><a href="#嵌入式系统的开发模式" class="headerlink" title="嵌入式系统的开发模式"></a>嵌入式系统的开发模式</h3><p><strong>主机+仿真器+硬件平台</strong>或<strong>主机通过网络通信连接至硬件平台</strong></p>
 <p><strong>完整的嵌入式操作系统</strong>：<br>初始化时一般需要通过仿真器向硬件平台下载嵌入式操作系统的启动加载程序Bootloader<br>在通过Bootloader安装了嵌入式操作系统之后，就不再需要仿真器了<br>只需要利用网络通信(有时也可以利用USB或串口)，下载或通过网络文件系统在目标机上运行程序<br>注：一些新的嵌入式硬件平台不再提供仿真器，而是使用SD卡或USB接口</p>
 <p><strong>与应用程序一体化的操作系统</strong>：<br>开发时使用的是仿真器提供的开发环境<br>这时在整个开发过程中仿真器不可或缺<br>这种方式除了自制硬件平台被通用硬件平台代替外，与单片机系统开发类似</p>
 <p>嵌入式系统开发者的主要任务是在主机上编写基于操作系统的程序，然后通过交叉编译的方式，在嵌入式操作系统环境下调试和运行</p>
@@ -579,7 +580,7 @@
 </tr>
 </tbody></table>
 <h3 id="NandFlash的控制引脚信号"><a href="#NandFlash的控制引脚信号" class="headerlink" title="NandFlash的控制引脚信号"></a>NandFlash的控制引脚信号</h3><p>命令锁存引脚CLE<br>芯片写引脚nWE<br>地址锁存引脚ALE<br>芯片读引脚nRE<br>芯片使能引脚nCE<br>就绪&#x2F;忙引脚R&#x2F;nB<br>数据&#x2F;命令&#x2F;地址输入输出引脚I&#x2F;O0~I&#x2F;O7</p>
-<h3 id="S5PV210支持的6种电源模式"><a href="#S5PV210支持的6种电源模式" class="headerlink" title="S5PV210支持的6种电源模式"></a>S5PV210支持的6种电源模式</h3><p>处理器有6种电源模 式，可起到降低功耗的作用：<br>NORMAL：工作模式<br>IDLE：空闲模式<br>DEEPIDLE：深度空闲模式<br>STOP：停止模式<br>DEEPSTOP：深度停止模式<br>SLEEP：休眠模式</p>
+<h3 id="S5PV210支持的6种电源模式"><a href="#S5PV210支持的6种电源模式" class="headerlink" title="S5PV210支持的6种电源模式"></a>S5PV210支持的6种电源模式</h3><p>处理器有6种电源模式，可起到降低功耗的作用：<br>NORMAL：工作模式<br>IDLE：空闲模式<br>DEEPIDLE：深度空闲模式<br>STOP：停止模式<br>DEEPSTOP：深度停止模式<br>SLEEP：休眠模式</p>
 <h3 id="S5PV210的3个主要的GPIO特殊功能寄存器功能"><a href="#S5PV210的3个主要的GPIO特殊功能寄存器功能" class="headerlink" title="S5PV210的3个主要的GPIO特殊功能寄存器功能"></a>S5PV210的3个主要的GPIO特殊功能寄存器功能</h3><p>常用的是前三个寄存器:<br>GPJ2CON：配置引脚为输入&#x2F;输出或其它功能<br>GPJ2DAT：装入准备输出或输入的数据，其值为7位[7:0]<br>GPJ2PUP：为10时对应引脚设置为禁止，01下拉，10上拉，其值为16位[15:0]</p>
 <h3 id="S5PV210内部的定时器逻辑结构图"><a href="#S5PV210内部的定时器逻辑结构图" class="headerlink" title="S5PV210内部的定时器逻辑结构图"></a>S5PV210内部的定时器逻辑结构图</h3><p>![[Pasted image 20230413133411.png]]</p>
 <h3 id="S5PV210定时器输出频率计算"><a href="#S5PV210定时器输出频率计算" class="headerlink" title="S5PV210定时器输出频率计算"></a>S5PV210定时器输出频率计算</h3><p>$$定时器输入时钟频率f{Tclk}&#x3D;\frac{f_{PCLK}}{预分频值+1}×分频值$$<br>$$PWM输出时钟频率&#x3D;\frac {f<br>{Tclk}}{T{CNTBn}}$$<br>$$PWM输出信号占空比&#x3D;\frac{TCMPBn}   {TCNTBn}$$<br>![[Pasted image 20230413163438.png]]</p>
@@ -602,7 +603,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h3 id="S5PV210的-UART-波特率计算"><a href="#S5PV210的-UART-波特率计算" class="headerlink" title="S5PV210的 UART 波特率计算"></a>S5PV210的 UART 波特率计算</h3><p>UARTn的波特率取决于对应的波特率除数寄存器UBRDIVn的值<br>$$UBRDIVn&#x3D;(int)(CLK&#x2F;(bps<em>16))-1$$<br>CLK：所选择时钟源的频率       bps：波特率<br>如果波特率为115200bps且其时钟源PCLK 为40MHz<br>$$UBRDIVn &#x3D; (int)(40000000)&#x2F;(115200</em>16))-1<br>        &#x3D; (int)(21.7)-1 &#x3D; 21-1 &#x3D; 20$$<br>由于四舍五入的关系，实际波特率与理想波特率之间存在误差，实际使用时，传输10位数据的时间误差应该小于1.87％(3&#x2F;160)</p>
+<h3 id="S5PV210的-UART-波特率计算"><a href="#S5PV210的-UART-波特率计算" class="headerlink" title="S5PV210的 UART 波特率计算"></a>S5PV210的 UART 波特率计算</h3><p>UARTn的波特率取决于对应的波特率除数寄存器UBRDIVn的值<br>$$UBRDIVn&#x3D;(int)(CLK&#x2F;(bps<em>16))-1$$<br>CLK：所选择时钟源的频率<br>bps：波特率<br>如果波特率为115200bps且其时钟源PCLK 为40MHz<br>$$UBRDIVn &#x3D; (int)(40000000)&#x2F;(115200</em>16))-1<br>        &#x3D; (int)(21.7)-1 &#x3D; 21-1 &#x3D; 20$$<br>由于四舍五入的关系，实际波特率与理想波特率之间存在误差，实际使用时，传输10位数据的时间误差应该小于1.87％(3&#x2F;160)</p>
 <h3 id="S5PV210的-LCD裸屏控制信号"><a href="#S5PV210的-LCD裸屏控制信号" class="headerlink" title="S5PV210的 LCD裸屏控制信号"></a>S5PV210的 LCD裸屏控制信号</h3><p>![[Pasted image 20230413180137.png]]</p>
 <h3 id="S5PV210的-A-x2F-D转换与触摸屏接口逻辑结构"><a href="#S5PV210的-A-x2F-D转换与触摸屏接口逻辑结构" class="headerlink" title="S5PV210的 A&#x2F;D转换与触摸屏接口逻辑结构"></a>S5PV210的 A&#x2F;D转换与触摸屏接口逻辑结构</h3><p>![[Pasted image 20230413181221.png]]</p>
 <h3 id="S5PV210的-IIC总线信号"><a href="#S5PV210的-IIC总线信号" class="headerlink" title="S5PV210的 IIC总线信号"></a>S5PV210的 IIC总线信号</h3><p>IIC(Inter-Integrated Circuit)，也写做I2C，即集成电路总线，是为实现在器件间进行简单的消息传递而设计的。</p>
@@ -611,7 +612,7 @@
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dg4y1H773/?spm_id_from=333.337.search-card.all.click&vd_source=62552d67d8de63c74ce35658499bc372">4分钟看懂！I2C通讯协议 最简单的总线通讯！_哔哩哔哩_bilibili</a></p>
 </blockquote>
 <p>Mini210s上的利用3路IIC连接了7种不同外设</p>
-<h3 id="S5PV210的-SPI接口信号"><a href="#S5PV210的-SPI接口信号" class="headerlink" title="S5PV210的 SPI接口信号"></a>S5PV210的 SPI接口信号</h3><p>SPI(Serial Peripheral Interface)串行外围设备接口,是处理器与外设芯片间一种高速、低成本、易使用的全双工同步串行总线<br>SPI以主从方式工作，通常有一个主设备和一个或多个从设备<br>S5PV210最多可配置2个高速SPI接口：<br>MOSI：主设备数据输出，从设备数据输入<br>MISO：主设备数据输入，从设备数据输出<br>SCLK：用来为数据通信提供同步时钟信号，由主设备产生<br>CSn：从设备使能信号，由主设备控制</p>
+<h3 id="S5PV210的-SPI接口信号"><a href="#S5PV210的-SPI接口信号" class="headerlink" title="S5PV210的 SPI接口信号"></a>S5PV210的 SPI接口信号</h3><p>SPI(Serial Peripheral Interface)串行外围设备接口,是处理器与外设芯片间一种高速、低成本、易使用的全双工同步串行总线<br>SPI以主从方式工作，通常有一个主设备和一个或多个从设备<br>S5PV210最多可配置2个高速SPI接口<br>MOSI：主设备数据输出，从设备数据输入<br>MISO：主设备数据输入，从设备数据输出<br>SCLK：用来为数据通信提供同步时钟信号，由主设备产生<br>CSn：从设备使能信号，由主设备控制</p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1F54y1M7e7/?spm_id_from=333.788.recommend_more_video.0&vd_source=62552d67d8de63c74ce35658499bc372">深入理解SPi通讯协议，5分钟看懂！_哔哩哔哩_bilibili</a></p>
 </blockquote>
@@ -635,11 +636,16 @@
 </blockquote>
 <h3 id="gcc编译命令及选项的使用"><a href="#gcc编译命令及选项的使用" class="headerlink" title="gcc编译命令及选项的使用"></a>gcc编译命令及选项的使用</h3><p>![[Pasted image 20230414170429.png]]</p>
 <p>| 编译目标| 编译命令|<br>| :—–:| :—-: | :—-: |<br>|hello.c| | |<br>|hello.i    |         gcc -E -o hello.i hello.c||<br>|hello.s    |         gcc -S  -o hello.s hello.i     |     gcc -S -o hello.s hello.c  |<br>|hello.o   |         gcc -c -o hello.o hello.s      |    gcc -c -o hello.o hello.c|<br>|hello     |          gcc -o hello hello.o            |     gcc -o hello hello.c |</p>
+<blockquote>
+<p>gcc 与 g++ 分别是 gnu 的 c &amp; c++ 编译器。<br>gcc&#x2F;g++ 在执行编译工作的时候，总共需要4步：<br>1、预处理,生成 .i 的文件[预处理器cpp]<br>2、将预处理后的文件转换成汇编语言, 生成文件 .s [编译器egcs]<br>3、有汇编变为目标代码(机器代码)生成 .o 的文件[汇编器as]<br>4、连接目标代码, 生成可执行程序 [链接器ld]<br><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/gcc-parameter-detail.html">GCC 参数详解 | 菜鸟教程 (runoob.com)</a></p>
+</blockquote>
 <h3 id="编译工具链的组成"><a href="#编译工具链的组成" class="headerlink" title="编译工具链的组成"></a>编译工具链的组成</h3><p>![[Pasted image 20230414172550.png]]</p>
 <p><strong>GCC编译器</strong>：GNU的c和c++编译器，如gcc-2.95.3.tar.gz<br>gcc是编译的前端程序，编译时可依次调用cpp、cc1、as等工具完成编译。<br>gcc具有丰富的命令选项，如-o,-c,-L(指定库所在目录),-l(指定库文件),-I指定头文件目录),O(指定编译时的优化级别)等。</p>
 <p><strong>binutils二进制工具</strong>：主要包括链接器ld，汇编代码编译器as，库管理器ar等工具，如binutils-2.11.2.tar.gz。</p>
 <p><strong>glibc库函数</strong>：C函数库和Linux的线程库，如glibc-2.2.3.tar.gz和glibc-linuxthreads-2.2.3.tar.gz。</p>
-<h3 id="共享函数库与静态函数库比较"><a href="#共享函数库与静态函数库比较" class="headerlink" title="共享函数库与静态函数库比较"></a>共享函数库与静态函数库比较</h3><p>分为静态函数库和共享函数库：<br>1 静态函数库：用.a作为文件的后缀，生成目标代码时会被加入到其中，生成代码体积大，速度快。<br>2 共享函数库：存放可执行程序在运行的时候才会被加载的函数，生成代码可以共享，便于升级<br>函数库名字必须lib作为前缀，后缀是.so(.a)及版本号信息， 如libgui.so.1。</p>
+<h3 id="共享函数库与静态函数库比较"><a href="#共享函数库与静态函数库比较" class="headerlink" title="共享函数库与静态函数库比较"></a>共享函数库与静态函数库比较</h3><p>分为静态函数库和共享函数库：  </p>
+<h4 id="静态函数库："><a href="#静态函数库：" class="headerlink" title="静态函数库："></a>静态函数库：</h4><p>用.a作为文件的后缀，生成目标代码时会被加入到其中，生成代码体积大，速度快。  </p>
+<h4 id="共享函数库："><a href="#共享函数库：" class="headerlink" title="共享函数库："></a>共享函数库：</h4><p>存放可执行程序在运行的时候才会被加载的函数，生成代码可以共享，便于升级<br>函数库名字必须lib作为前缀，后缀是.so(.a)及版本号信息， 如libgui.so.1。</p>
 <h3 id="简单makefile文件编写"><a href="#简单makefile文件编写" class="headerlink" title="简单makefile文件编写"></a>简单makefile文件编写</h3><p>Makefile规则的一般形式如下：</p>
 <pre><code class="hljs">target：dependency dependency
 (tab)&lt;command&gt; 
@@ -659,7 +665,7 @@
 <p>在一行的开始给初变量名字，后面跟一个”:&#x3D;”及要设定的值，即可定义变量：</p>
 <pre><code class="hljs">VARNAME:=string
 </code></pre>
-<p>使用时把变量用括号括起来，并在前面加上  <code>$:</code>      <code>$&#123;VARNAME&#125;</code><br>例：</p>
+<p>使用时把变量用括号括起来，并在前面加上  <code>$</code> ，即<code>$&#123;VARNAME&#125;</code><br>例：</p>
 <pre><code class="hljs">OBJS:=prog.o code.o
 CC:=gcc
 test：$&#123; OBJS &#125;
