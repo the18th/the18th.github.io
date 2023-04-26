@@ -1,0 +1,857 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/18.png">
+  <link rel="icon" href="/img/18.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="The_18th">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文旨在记录HIT机器人视觉及图像处理课程相关资料">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器人视觉及图像处理课程相关资料汇总">
+<meta property="og:url" content="http://example.com/2023/04/24/Image_Processing_review/index.html">
+<meta property="og:site_name" content="Terminal 18">
+<meta property="og:description" content="本文旨在记录HIT机器人视觉及图像处理课程相关资料">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-24T04:30:40.000Z">
+<meta property="article:modified_time" content="2023-04-26T09:19:09.835Z">
+<meta property="article:author" content="The_18th">
+<meta property="article:tag" content="技术碎片">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>机器人视觉及图像处理课程相关资料汇总 - Terminal 18</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Terminal 18</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="机器人视觉及图像处理课程相关资料汇总"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-04-24 12:30" pubdate>
+          2023年4月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          115 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">机器人视觉及图像处理课程相关资料汇总</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>本文旨在记录HIT机器人视觉及图像处理课程相关资料  </p>
+<span id="more"></span>
+<p>授课老师袁鑫</p>
+<h2 id="1-绪论"><a href="#1-绪论" class="headerlink" title="1.绪论"></a>1.绪论</h2><h3 id="1-1图像、图像处理、机器视觉概述"><a href="#1-1图像、图像处理、机器视觉概述" class="headerlink" title="1.1图像、图像处理、机器视觉概述"></a>1.1图像、图像处理、机器视觉概述</h3><h4 id="图像处理（Image-Processing）定义"><a href="#图像处理（Image-Processing）定义" class="headerlink" title="图像处理（Image Processing）定义"></a>图像处理（Image Processing）定义</h4><p>对图像进行一系列的操作以达到预期目的的技术称作图像处理。</p>
+<h4 id="数字图像处理"><a href="#数字图像处理" class="headerlink" title="数字图像处理"></a>数字图像处理</h4><p>主要包括：</p>
+<p>1.几何处理<br><strong>几何处理</strong>主要包括图像座标变换，图像放大，缩小、旋转、移动、多个图像配准，全景畸变校正，扭曲校正，周长、面积、体积计算等。</p>
+<p>2.算术处理<br><strong>算术处理</strong>主要是对图像进行＋、－、×、÷等运算处理，一般针对像素点处理，如减影处理等。</p>
+<p>3.图像变换<br>图像增强处理主要是突出图像中感兴趣的信息，而减弱或去除不需要的信息，从而使有用信息得到加强，便于区分或解释。</p>
+<p>4.图像复原<br>图像复原处理主要是去掉干扰和模糊，恢复图像的本来面目。典型的方法有去噪，包括去掉随机噪声和相干噪声。</p>
+<p>5.图像重建<br>前面介绍的几何处理，图像增强，图像复原都是从图像到图像的处理，而重建是从数据到图像的处理。其处理的结果是图像。</p>
+<p>6.图像编码<br><strong>图像编码</strong>是数字图像处理中的经典课题。它属于信息论中的信源编码范畴。图像编码的主要特点是利用图像信号的统计特性和人类视觉的生理学及心理学特性对图像信号进行高效编码。也就是研究<strong>数据压缩技术</strong>，以解决巨大数据量带来的一系列矛盾。</p>
+<p>图像编码的目的：<br>  ① 减少数据存储空间；<br>  ② 降低数据率，减少传输带宽；<br>  ③ 压缩信息量，便于提取特征，为识别做准备。  </p>
+<p>7.模式识别<br>模式识别是数字图像处理的又一研究领域。</p>
+<p>8.图像理解<br><strong>图像理解</strong>是由模式识别发展起来的方法。这种处理<strong>输入的是图像，输出的是一种描述</strong>。这种描述不是单纯的用符号作出详细的描绘，而是要用客观世界的知识使计算机进行联想、思考及推论，从而理解图像所表现的内容。图像理解有时也叫<strong>景物理解</strong>。</p>
+<h4 id="图像处理三种基本范畴"><a href="#图像处理三种基本范畴" class="headerlink" title="图像处理三种基本范畴"></a>图像处理三种基本范畴</h4><p>低级处理：图像获取、预处理，不需要智能<br>中级处理：特征提取、目标检测、识别，需智能<br>高级处理：图像解释，缺少理论，为降低难度，设计的更专用。</p>
+<h3 id="1-2数字图像处理的基本概念"><a href="#1-2数字图像处理的基本概念" class="headerlink" title="1.2数字图像处理的基本概念"></a>1.2数字图像处理的基本概念</h3><h4 id="图像及其分类"><a href="#图像及其分类" class="headerlink" title="图像及其分类"></a>图像及其分类</h4><p>从人眼的视觉特点看，图像分为可见图像和不可见图像。<br>按波段多少，图像可分为单波段、多波段和超波段图像。<br>按图像空间坐标和明暗程度的连续性，图像可分为模拟图像和数字图像。   </p>
+<h5 id="模拟图像"><a href="#模拟图像" class="headerlink" title="模拟图像"></a>模拟图像</h5><p>即实物图像，如照片、底片、印刷品、画，只要通过客观的物理量表现颜色的图像就是模拟图像。<br>模拟图像可用连续函数来描述。<br>$$I&#x3D;F(x,y)$$<br>$I$图像；$（x，y）$位置坐标；$F$图像各点对应的特性，如光照强度。$x，y，F$均可以取任意数值，均为连续变化的量。</p>
+<p>特点：图像空间坐标和明暗程度均为连续变化的，计算机无法直接处理。</p>
+<h5 id="数字图像"><a href="#数字图像" class="headerlink" title="数字图像"></a>数字图像</h5><p>经过空间（采样）和幅值（量化）离散化的图像，以数字方式存储的图像，可以利用计算机处理、传输。 </p>
+<p>数字图像可用矩阵或数组来描述</p>
+<p>像素的属性：空间位置和灰度值（颜色值）。</p>
+<h5 id="图像的数字化"><a href="#图像的数字化" class="headerlink" title="图像的数字化"></a>图像的数字化</h5><p>是指将模拟图像经过离散化之后，得到用数字表示的图像。</p>
+<p>图像数字化的基本过程包括采样和量化两个过程 ：</p>
+<h6 id="采样-：对空间连续坐标-x-y-的离散化"><a href="#采样-：对空间连续坐标-x-y-的离散化" class="headerlink" title="采样 ：对空间连续坐标(x, y)的离散化"></a>采样 ：对空间连续坐标(x, y)的离散化</h6><p>采样是指将在空间上连续的图像转换成离散的采样点（即像素）集的操作。（按一定间隔扫描）<br>由于图像是二维分布的信息，所以采样是在 x轴和y轴两个方向上进行的。<br>一般情况下， x轴方向与y轴方向的采样间隔相同。　</p>
+<p>数字图像是指由被称作像素的小块区域组成的二维矩阵。将物理图像行列划分后，每个小块区域称为像素（pixel）。各像素的灰度值也是离散值。</p>
+<p>每个像素包括两个属性：位置和灰度（颜色）。</p>
+<p>采样时的注意点是：采样间隔的选取。<br>采样间隔太小，则增大数据量；太大， 则会发生信息的混叠，导致细节无法辨认。  </p>
+<h6 id="量化-：幅值-f-x-y-的离散化"><a href="#量化-：幅值-f-x-y-的离散化" class="headerlink" title="量化 ：幅值 f (x, y)的离散化"></a>量化 ：幅值 f (x, y)的离散化</h6><p>量化是将各个像素所含的明暗信息离散化后，用数字来表示。一般的量化值为整数。</p>
+<p>充分考虑到人眼的识别能力之后，目前非特殊用途的图像均为8bit量化，即采用0 ~ 255的整数来描述“从黑到白”。</p>
+<p>在3bit以下的量化，会出现伪轮廓现象。</p>
+<p>灰度是指黑白图像中点的颜色深度，范围一般从0到255，即可用一个字节来表示，白色为255 ，黑色为0，故黑白图片也称灰度图像.</p>
+<p>每个像素呈现不同颜色（彩色、灰度、黑白）<br>黑白：每个像素只需1位表示0,1<br>灰度：每个像素0-255，需要8位二进制位<br>彩色：每个像素有3个值，(R红,G绿,B蓝)，3个8位。即24位真彩色图像。<br>一幅图像的尺寸：像素点数来衡量“水平像素点数 X 垂直像素点数”<br>像素格子越小图像越清晰，单位尺寸内的像素点数目——分辨率，分辨率越高图像越清晰。  </p>
+<p>灰度分辨率：图像灰度级中可分辨的最小变化。一般用灰度级或比特数表示。<br>注：所谓颜色或灰度级指黑白显示器中显示像素点的亮暗差别，在彩色显示器中表现为颜色的不同，灰度级越多，图像层次越清楚逼真。灰度是相对于单色而言的，将亮度分成256恰好一个字节。</p>
+<h4 id="图像的矩阵形式"><a href="#图像的矩阵形式" class="headerlink" title="图像的矩阵形式"></a>图像的矩阵形式</h4><p>一幅行数为M、列数为N的图像大小为M×N的矩阵形式为：<br>$$f(x, y)&#x3D;\left[\begin{array}{cccc}<br>f(0,0) &amp; f(0,1) &amp; \cdots &amp; f(0, N-1) \<br>f(1,0) &amp; f(1,1) &amp; \cdots &amp; f(1, N-1) \<br>\vdots &amp; &amp; &amp; \<br>f(M-1,0) &amp; f(M-1,1) &amp; \cdots &amp; f(M-1, N-1)<br>\end{array}\right]$$</p>
+<p>其中矩阵中的每个元素代表一个像素 </p>
+<h4 id="数字图像的数据量"><a href="#数字图像的数据量" class="headerlink" title="数字图像的数据量"></a>数字图像的数据量</h4><p>图像（水平）尺寸 M：$M&#x3D;2^m$<br>图像（垂直）尺寸 N：$N&#x3D;2^n$<br>像素灰度级数 G (k-bit)：$G&#x3D;2^k$<br>图像所需的位数 b：$b&#x3D;M<em>N</em>k$</p>
+<p>存储1幅128 * 128，64（6bit）个灰度级的图需要 98,304 bit<br>存储1幅512 * 512，256（8bit）个灰度级的图需要 2,097,152 bit </p>
+<h3 id="1-3常用文件存储格式"><a href="#1-3常用文件存储格式" class="headerlink" title="1.3常用文件存储格式"></a>1.3常用文件存储格式</h3><p>常见图像文件格式：BMP格式，GIF格式，TIFF格式，JPEG 格式，每种都有自己独特的存储方式。</p>
+<h2 id="2-视觉系统与图像处理系统"><a href="#2-视觉系统与图像处理系统" class="headerlink" title="2.视觉系统与图像处理系统"></a>2.视觉系统与图像处理系统</h2><h3 id="2-1人类视觉与色度学基础"><a href="#2-1人类视觉与色度学基础" class="headerlink" title="2.1	人类视觉与色度学基础"></a>2.1	人类视觉与色度学基础</h3><h4 id="人类视觉"><a href="#人类视觉" class="headerlink" title="人类视觉"></a>人类视觉</h4><p>人类对光的感知依靠的是视网膜细胞<br>视网膜的表面分布有大量光敏细胞，有两种：</p>
+<p>杆状细胞：数量很多（1亿），仅能感知光的亮度，不能感知颜色；<br>锥状细胞：数量少，稀疏的填充在视网膜中心称为“中央凹”的部位，在照度足够高时起作用，并能分辨颜色。</p>
+<p>视网膜上杆状光敏细胞：光强。<br>视网膜上锥状光敏细胞：光强与颜色。</p>
+<h4 id="三基色原理"><a href="#三基色原理" class="headerlink" title="三基色原理"></a>三基色原理</h4><p>由三基色混配各种颜色通常有两种方法：<br>    相加混色法。<br>        彩色电视机上的颜色。<br>    相减混色法。<br>        彩色电影、幻灯片、绘画原料  </p>
+<p>相加混色和相减混色的主要区别：<br>    （1）相加法是由发光体发出的光相加而产生的各种颜色，而相减法是先有白色光，然后从中减去某些成份（吸收）得到各种颜色。<br>    当阳光照射到一个物体上时，该物体将吸收一部分具有一定光谱的光线，并将剩下的光线进行反射，反射光线的光谱决定我们看见的物体的颜色。<br>    （2）相加混色的三基色是红、绿、蓝，而相减混色的三基色是黄、青、品红。相加混色的补色就是相减混色的基色。  </p>
+<h4 id="颜色向量C的计算"><a href="#颜色向量C的计算" class="headerlink" title="颜色向量C的计算"></a>颜色向量C的计算</h4><p>R、G、B颜色表示系统，选择标准红色，绿色和蓝色三种单色光作为表色系统的三基色。</p>
+<p>颜色向量C<br>红（R）、绿（G）、蓝（B）三刺激值所构成的（R，G，B）向量的和构成。<br>$$C&#x3D;RR_0+GG_0+BB_0$$<br>R、G、B为C的三刺激值（tristimulus values）<br>$（R_0，G_0，B_0）$称为原刺激值，是单位向量。</p>
+<h4 id="彩色模型"><a href="#彩色模型" class="headerlink" title="彩色模型"></a>彩色模型</h4><p>彩色模型也称为彩色空间或彩色系统，是描述色彩的一种方法。<br>RGB: 显示器信号<br>HSI：人眼识别<br>YUV：电视信号<br>CMY：彩色印刷  </p>
+<h5 id="HSI彩色模型"><a href="#HSI彩色模型" class="headerlink" title="HSI彩色模型"></a>HSI彩色模型</h5><p>HSI格式中，I表示强度或亮度。包含彩色信息的两个参数是色调(H)和饱和度(S)。   </p>
+<p>色度H：由角度表示 ，假定0°的彩色为红色，120°的为绿色，240°的为蓝色。<br>饱和度S：是色环的原点（圆心）到彩色点的半径的长度。<br>亮度I：高度，0对应底部为黑</p>
+<h4 id="RGB和HSI的彩色变换"><a href="#RGB和HSI的彩色变换" class="headerlink" title="RGB和HSI的彩色变换"></a>RGB和HSI的彩色变换</h4><p>给定一幅RGB彩色图像，每一个RGB像素的H、S和I分量可用下面的公式得到：<br>RGB到HSI的转换：<br>$$\begin{array}{l}<br>H&#x3D;\left{\begin{array}{lc}<br>\theta &amp; B \leq G \<br>2 \pi-\theta &amp; B&gt;G<br>\end{array} \quad \theta&#x3D;\arccos \left{\frac{(R-G)+(R-B)}{2\left[(R-G)^{2}+(R-B)(G-B)\right]^{1 &#x2F; 2}}\right}\right.\<br>S&#x3D;1-\frac{3}{(R+G+B)}[\min (R, G, B)]\<br>I&#x3D;\frac{R+G+B}{3}<br>\end{array}$$<br>HSI到RGB的转换：<br>$$当  0 \leq H&lt;\frac{2 \pi}{3}  时:</p>
+<p>\begin{array}{l}<br>R&#x3D;I\left[1+\frac{S \cos (H)}{\cos (\pi &#x2F; 3-H)}\right] \<br>B&#x3D;I(1-S) \<br>G&#x3D;1-(R+B)<br>\end{array}<br>$$<br>$$</p>
+<p>当  \frac{2 \pi}{3} \leq H&lt;\frac{4 \pi}{3}  时:</p>
+<p>\begin{array}{l}<br>G&#x3D;I\left[1+\frac{S \cos \left(H-\frac{2 \pi}{3}\right)}{\cos (\pi-H)}\right]<br>\<br>R&#x3D;I(1-S) \<br>B&#x3D;1-(R+G)<br>\end{array}<br>$$</p>
+<p>$$<br>而当  \frac{4 \pi}{3} \leq H&lt;2 \pi  时:</p>
+<p>\begin{array}{l}<br>B&#x3D;I\left[1+\frac{S \cos \left(H-\frac{4 \pi}{3}\right)}{\cos \left(\frac{\pi}{3}-H\right)}\right] \<br>G&#x3D;I(1-S) \<br>R&#x3D;1-(B+G)<br>\end{array}<br>$$</p>
+<h3 id="2-2-光度学基本知识"><a href="#2-2-光度学基本知识" class="headerlink" title="2.2    光度学基本知识"></a>2.2    光度学基本知识</h3><h4 id="光度学"><a href="#光度学" class="headerlink" title="光度学"></a>光度学</h4><p>光学中研究光的辐射、吸收、照射、反射、散射、漫射等度量的学科</p>
+<ol>
+<li>光通量</li>
+<li>发光强度</li>
+<li>视敏度</li>
+<li>亮度<br>亮度是发光面的明亮程度的度量，它决定于单位面积的发光强度，单位为cd&#x2F;m2。  </li>
+<li>照度<br>照度指照射在单位面积上的光通量，单位为勒（lx）。</li>
+</ol>
+<p>照度：是光源对物体辐射的一种量度<br>亮度：观察者对物体表面光强的量度</p>
+<h3 id="2-3-视觉特性"><a href="#2-3-视觉特性" class="headerlink" title="2.3    视觉特性"></a>2.3    视觉特性</h3><p>视觉系统对光照的响应，就形成了亮度感觉。视觉系统对不同波段的光照，其响应并不是一致的，这种不一致性被称作视力敏感性。</p>
+<p>视觉功能还具有亮度适应力、视觉运动特性、视觉空间和时间频率特性等。</p>
+<h4 id="1、亮度适应力"><a href="#1、亮度适应力" class="headerlink" title="1、亮度适应力"></a>1、亮度适应力</h4><p>从阳光灿烂的室外走入室内的瞬间，会感到一片漆黑，但稍过片刻，视觉便会逐渐恢复，这种人眼适应暗环境的能力称为暗适应性，通常这种适应过程需要10〜30s </p>
+<p>人眼具有暗适应性的原因：<br>瞳孔放大，光通面积增大<br>视杆细胞代替视锥细胞工作，视神经细胞发生转换。（前者的视敏度约为后者的10000倍，由亮到暗突变时，视杆细胞需要时间对微弱光恢复感觉）</p>
+<p>当从黑暗的房间进入明亮的大厅时，人眼具有明适应性。与暗适应性相比，明适应性过程要快得多，通常只需1〜2 s<br>视锥细胞恢复工作所需时间比视杆细胞少的多。</p>
+<p><strong>结论：适应主要包括明暗适应和色彩适应两种情况，适应由两个方面来调节</strong><br>调节瞳孔的大小，改变进入人眼的光通量。<br>视觉细胞感光机制的适应。  </p>
+<h4 id="2-视觉运动特性"><a href="#2-视觉运动特性" class="headerlink" title="2. 视觉运动特性"></a>2. 视觉运动特性</h4><p><strong>视锥细胞</strong><br>在中央凹处最密集，构成的分辨率高</p>
+<p><strong>视杆细胞</strong><br>在视网膜周围构成的周边视力分辨率低，看不清图像细节，但对图像中运动变化部分很灵敏。</p>
+<p>**当快速运动物体从眼前通过时，人眼只能有个粗略轮廓，而很难看到其细节。只有当物体细节大小、明暗对比度以及在人眼中呈现时间长短都比较合适时，才能对物体细节有个清楚的认识。</p>
+<h3 id="2-4基本的图像处理系统"><a href="#2-4基本的图像处理系统" class="headerlink" title="2.4	基本的图像处理系统"></a>2.4	基本的图像处理系统</h3><h4 id="图像处理系统"><a href="#图像处理系统" class="headerlink" title="图像处理系统"></a>图像处理系统</h4><p>图像处理硬件和图像处理软件。</p>
+<h5 id="图像处理硬件"><a href="#图像处理硬件" class="headerlink" title="图像处理硬件"></a>图像处理硬件</h5><p>微机图像处理硬件系统主要由图像输入设备、图像运算处理设备（微计算机）、图像存储器、图像输出设备等组成。</p>
+<h5 id="图像软件系统"><a href="#图像软件系统" class="headerlink" title="图像软件系统"></a>图像软件系统</h5><p>包括操作系统、控制软件及应用软件等。</p>
+<h2 id="3-基本图像变换"><a href="#3-基本图像变换" class="headerlink" title="3.基本图像变换"></a>3.基本图像变换</h2><h3 id="3-1图像变换的基础知识"><a href="#3-1图像变换的基础知识" class="headerlink" title="3.1	图像变换的基础知识"></a>3.1	图像变换的基础知识</h3><blockquote>
+<p>为了有效和快速地对图像进行处理，常常需要将原定义在图像空间的图像以某种形式转换到另外一些空间，并利用在这些空间的特有性质方便地进行一定的加工，最后再转换回图像空间以得到所需的效果。这些转换方法就是本章要着重介绍和讨论的图像变换技术 </p>
+</blockquote>
+<p> 变换是双向的，或者说需要双向的变换。在图像处理中，一般将从图像空间向其他空间的变换称为正变换，而将从其他空间向图像空间的变换称为反变换或逆变换 	</p>
+<p>图像变换使图像在视觉上失去了原有图像的形态，尽管视觉上不同，但是保留了很多本质特征。<br>一般变换后的图像，大部分能量都分布于低频谱段，这对以后图像的压缩\传输都比较有利。</p>
+<h3 id="3-2傅里叶变换"><a href="#3-2傅里叶变换" class="headerlink" title="3.2	傅里叶变换"></a>3.2	傅里叶变换</h3><h5 id="1-傅里叶变换在图像滤波中的应用"><a href="#1-傅里叶变换在图像滤波中的应用" class="headerlink" title="1. 傅里叶变换在图像滤波中的应用"></a>1. 傅里叶变换在图像滤波中的应用</h5><p>首先, 我们来看傅里叶变换后的图像, 中间部分为低频 部分, 越靠外边频率越高。<br>因此, 我们可以在傅里叶变换图中, 选择所需要的高频 或是低频滤波。</p>
+<h5 id="2-傅里叶变换在图像压缩中的应用"><a href="#2-傅里叶变换在图像压缩中的应用" class="headerlink" title="2. 傅里叶变换在图像压缩中的应用"></a>2. 傅里叶变换在图像压缩中的应用</h5><p>变换系数刚好表现的是各个频率点上的幅值。在小波变 换没有提出时, 用来进行压缩编码。考虑到高频反映细节、 低频反映景物概貌的特性。往往认为可将高频系数置为 0 , 骗过人眼。</p>
+<h4 id="二维Fourier变换的优点"><a href="#二维Fourier变换的优点" class="headerlink" title="二维Fourier变换的优点"></a>二维Fourier变换的优点</h4><p>1、可以获得信号的频域特性。<br>2、可以将卷积运算转换为乘积运算。</p>
+<h4 id="Fourier变换的应用—-用于图像压缩"><a href="#Fourier变换的应用—-用于图像压缩" class="headerlink" title="Fourier变换的应用—-用于图像压缩"></a>Fourier变换的应用—-用于图像压缩</h4><p>变换系数刚好表现的是各个频率点上的幅值。用来进行压缩编码。<br>考虑到高频反映细节、低频反映景物概貌的特性。往往认为可将高频系数置为0，骗过人眼。  </p>
+<h4 id="频率的理解："><a href="#频率的理解：" class="headerlink" title="频率的理解："></a>频率的理解：</h4><p>对图像信号而言，频率是指单位长度内亮度（也就是灰度) 变化的次数。是图像中灰度变化剧烈程度的指标，也可以理解为灰度在平面空间上的梯度。</p>
+<p>实际上对图像进行二维傅立叶变换得到频谱图，就是图像梯度的分布图，傅立叶频谱图上我们看到的明暗不一的亮点，实际上是图像上某一点（像素灰度值）与它的邻域点差异的强弱，即梯度的大小，也即该点的频率的大小（可以这么理解，图像中的低频部分指低梯度的点，高频部分梯度大的点）</p>
+<p>图像灰度变化缓慢的部分,对应变换后的低频分量部分;<br>图像的细节和轮廓边缘都是灰度突变区域,它们是变换后的高频分量</p>
+<h3 id="3-3-离散余弦变换"><a href="#3-3-离散余弦变换" class="headerlink" title="3.3   离散余弦变换"></a>3.3   离散余弦变换</h3><p>Fourier变换的一个最大的问题是：它的参数都是复数，在数据的描述上相当于实数的两倍。<br>为此，我们希望有一种能够达到相同功能但数据量又不大的变换。在此期望下，产生了DCT变换。</p>
+<p>●离散余弦变换(DCT for Discrete Cosine Transform)是与傅里叶变换相关的一种变换，它类似于离散傅里叶变换(DFT for Discrete Fourier Transform),但是只使用实数。</p>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>余弦变换主要用于图像的压缩，如目前的国际压缩标准的JPEG格式中就用到了DCT变换。<br>具体的做法与DFT相似。即高频部分压缩多一些，低频部分压缩少一些。  </p>
+<p>在DCT变换域中，图像被分解为直流（DC）分量和交流（AC）分量</p>
+<p>从稳健性的角度看，在保证水印不可见性的前提下，DC分量比AC分量更适合嵌入水印<br>    (1)	DC系数比AC系数的绝对振幅大，感觉容量大<br>    (2)	处理过程对AC分量的影响比DC分量的影响大</p>
+<p>同时嵌入到DC分量和AC分量中:	<br>    利用AC分量可加强嵌入的秘密性<br>   利用DC分量可加强嵌入的数据量</p>
+<p>在DCT域中AC系数又有高频系数和低频系数之分，将水印嵌入高频系数可以获得较好的不可见性，但稳健性较差。另一方面，将水印嵌入低频系数可获得较好的稳健性，但对视觉观察有较大影响。  </p>
+<p>DCT域上选择<strong>中低频系数</strong>叠加水印信息。之所以选择中、 低频系数, 是因为人眼的感觉主要集中在这一频段, 攻击者在破坏水印的过程中，不可避免地会引起图像质量的严重下降, 一般的图像处理过程也不会改变这部分数据。</p>
+<h3 id="3-4-小波变换"><a href="#3-4-小波变换" class="headerlink" title="3.4  小波变换"></a>3.4  小波变换</h3><h4 id="Fourier变换的局限性"><a href="#Fourier变换的局限性" class="headerlink" title="Fourier变换的局限性"></a>Fourier变换的局限性</h4><p>优点：频率的定位很好，通过对信号的频率分析，可以清晰的得到信号所包含的频率成分，也就是频谱。<br>缺点：因为频谱是时间从负无穷到正无穷的叠加，所以，知道某一频率，不能判断该频率的时间定位。不能判断某一时间段的频率成分。</p>
+<p>为了分析信号的局部信息发明小波变换</p>
+<p>Fourier分析是将信号分解成一系列不同频率的正弦波的叠加。<br>小波分析是将信号分解成一系列小波函数的叠加，而这些小波函数都是由一个母小波函数经过平移与尺度伸缩得来的。</p>
+<p>根据直觉，用不规则的小波函数来逼近尖锐变化的信号显然要比光滑的正弦曲线要好，同样，信号局部的特性用小波函数来逼近显然要比光滑的正弦函数来逼近要好 </p>
+<p>运用小波基，可以提取信号中的“指定时间”和“指定频率”的变化。<br>时间：提取信号中“指定时间”（时间A或时间B）的变化。顾名思义，小波在某时间发生的小的波动。<br>频率：提取信号中时间A的比较慢速变化，称较低频率成分；而提取信号中时间B的比较快速变化，称较高频率成分。  </p>
+<h3 id="3-5-基本图像变换MATLAB仿真实例"><a href="#3-5-基本图像变换MATLAB仿真实例" class="headerlink" title="3.5   基本图像变换MATLAB仿真实例"></a>3.5   基本图像变换MATLAB仿真实例</h3><h2 id="4-图像增强"><a href="#4-图像增强" class="headerlink" title="4.图像增强"></a>4.图像增强</h2><p>空域法：直接对图像的像素灰度值进行操作。包括图像的灰度变换、直方图修正、图像空域平滑和锐化处理等。</p>
+<p>频域法：在图像的变换域中，对图像的变换值进行操作，然后经逆变换获得所需的增强结果，常用的方法包括低通滤波、高通滤波以及同态滤波等。 </p>
+<h3 id="4-1空域图像增强技术"><a href="#4-1空域图像增强技术" class="headerlink" title="4.1	空域图像增强技术"></a>4.1	空域图像增强技术</h3><p>空域：直接对像素操作的过程<br>空域增强： 	<br>$$g(x,y)&#x3D;E_H[f(x,y)]$$<br>$E_H$代表增强操作</p>
+<p>点操作：如果 $E_H$仅定义在每个（x，y）上。<br>模板操作：如果 $E_H$还定义在（x，y）的某个邻域上</p>
+<h4 id="4-1-1图像灰度映射"><a href="#4-1-1图像灰度映射" class="headerlink" title="4.1.1	图像灰度映射"></a>4.1.1	图像灰度映射</h4><p><strong>灰度直方图定义</strong><br>灰度直方图是灰度级的函数，描述的是图像中具有该灰度级的像素的个数：其横坐标是灰度级，纵坐标是该灰度出现的频率（像素的个数，或个数与总数之比）。  </p>
+<p>① 不表示图像的空间信息<br>       直方图描述了每个灰度级具有的像素的个数，但不能为这些像素在图像中的位置提供任何线索。<br>② 任一特定图像都有唯一直方图，但反之并不成立；<br>      例如，在图像中移动物体对直方图没有影响。<br>③直方图的可相加性<br>      如果一图像由两个不连接的区域组成，并且每个区域的直方图已知，则整幅图像的直方图是该两个区域的直方图之和。  </p>
+<p><strong>灰度直方图—-用途</strong><br>①——判断量化是否恰当<br>    直方图给出了一个简单的指示：用来判断一幅图像是否合理利用了全部被允许的灰度级范围。一幅高质量的数字图像应该利用全部或几乎全部可能的灰度级。<br>②——判断图像明暗<br>    偏亮的直方图灰度图靠右（数值大的一方），反之靠左<br>③——判断图像对比度<br>    对比度高的图像灰度直方图较宽，而弱对比度的灰度直方图较窄<br>④——边界阈值选择<br>    假定一幅图背景是浅色的，其中有一个深色的物体。这类图像具有双峰直方图。物体中的深色像素产生了直方图上的左峰，而背景中大量的灰度级产生了直方图的右峰。物体边界附近具有两个峰值之间灰度级的像素数目相对较少，从而产生了两峰之间的谷。选择谷作为灰度阈值将得要合理的物体边界。</p>
+<h4 id="4-1-2-图像间运算"><a href="#4-1-2-图像间运算" class="headerlink" title="4.1.2  图像间运算"></a>4.1.2  图像间运算</h4><p>图像间运算的应用</p>
+<p>加法主要应用：<br>(1)  对同一场景的多幅图像求平均值，降低加性噪声；<br>(2)  一幅图像叠加到另一幅图像上去，达到二次暴光（Double-exposure)的效果。  </p>
+<p>减法主要应用<br>（1）在图像中运动物的检测中，通过前后两个图像的减法运算，可以了解运动物体移动的程度，计算出运动速度，并画出移动轨迹。<br>（2）图像相减也常用在医学图像处理中以消除背景。  </p>
+<p>乘(除)运算主要应用<br>1）用于提取或删除图像中某些内容<br>具体操作方法为：制作一幅称之为掩模（mask）的图像<br>A：该图像与原图同样大小<br>B：其中对应原图像中感兴趣的区域的像素灰度值设置为 1<br>C：对应原图像中需要删除区域的像素灰度值设置为 0<br>D：然后用此掩模图像与原图像相乘，即可提取出感兴趣的部分。  </p>
+<p>2）一幅图像乘以一个常数通常被称为缩放。如果使用的缩放因数大于1，那么将增强图像的亮度，如果因数小于1则会使图像变暗。</p>
+<h4 id="4-1-3直方图修正技术"><a href="#4-1-3直方图修正技术" class="headerlink" title="4.1.3	直方图修正技术"></a>4.1.3	直方图修正技术</h4><h5 id="1-直方图均衡化"><a href="#1-直方图均衡化" class="headerlink" title="1  直方图均衡化"></a>1  直方图均衡化</h5><p>主要是用于增强动态范围偏小的图像的反差<br>均衡化（线性化）基本思想<br>变换原始图像的直方图为均匀分布<br>&#x3D;&#x3D;&gt; 大动态范围<br>&#x3D;&#x3D;&gt; 增强图像整体对比度（反差）</p>
+<p>归一化直方图<br>$$p_s(s_k)&#x3D;n_k&#x2F;n$$<br>增强函数<br>(1)    $E_H(s)$： 单值单增函数，$0&lt;&#x3D;s&lt;&#x3D;1$<br>各灰度级在变换后仍保持排列次序<br>(2) 	对$0&lt;&#x3D;s&lt;&#x3D;1$   有$0&lt;&#x3D;E_H(s)&lt;&#x3D;1$<br>变换前后灰度值动态范围一致</p>
+<p>原始图像灰度级$s_k$<br>原始图像各灰度级的像素$n_k$<br>计算原始直方图$p(sk)&#x3D;n_k&#x2F;n$<br>计算原始累计直方图$t_k$<br>取整$t_k&#x3D;int[(L-1)t_k+0.5]$<br>确定映射对应关系$(s_k&lt;-&gt;t_k)$<br>统计新直方图各灰度级像素<br>变换后直方图</p>
+<p>利用累积分布函数作为灰度变换函数，经变换后得到的新灰度的直方图虽然不很平坦，但毕竟比原始图像的直方图平坦得多，而且其动态范围也大大扩展，因此这种方法对于对比度较弱的图像进行处理很有效。</p>
+<h5 id="2-直方图规定化"><a href="#2-直方图规定化" class="headerlink" title="2  直方图规定化"></a>2  直方图规定化</h5><p>定义：<br>    修改一幅图像的直方图，使它与另一幅图像的直方图匹配或具有一种预先规定的函数形状。<br>目标：<br>    当需要具有特定的直方图的图像时，可按照预先设定的某个形状人为的调整图像的直方图。  </p>
+<p>借助直方图变换实现规定&#x2F;特定的灰度映射<br>(1) 对原始直方图进行灰度均衡化</p>
+<p>(2) 规定需要的直方图，计算能使规定直方图<br>均衡化的变换</p>
+<p>(3) 将原始直方图对应映射到规定直方图<br>单映射：从原始直方图向规定直方图映射，从原始累计直方图每项向规定累计直方图找相应差值最小的映射<br>组映射：从规定直方图向原始直方图：从规定累计直方图向原始累计直方图找差值最小的映射方法 </p>
+<p>组映射比单映射效果好：<br>映射产生的误差用对应映射间数值的差值的和来表示，数值越小映射效果越好</p>
+<h5 id="直方图规定化-vs-直方图均衡化"><a href="#直方图规定化-vs-直方图均衡化" class="headerlink" title="直方图规定化 vs. 直方图均衡化"></a>直方图规定化 vs. 直方图均衡化</h5><p>直方图均衡化：<br>    自动增强	<br>    效果不易控制<br>    总得到全图增强的结果<br>直方图规定化：<br>    有选择地增强<br>    须给定需要的直方图<br>    可特定增强的结果</p>
+<h4 id="4-1-4-图像平滑处理"><a href="#4-1-4-图像平滑处理" class="headerlink" title="4.1.4   图像平滑处理"></a>4.1.4   图像平滑处理</h4><p>利用像素本身以及其邻域像素的灰度关系进行增强的方法常称为滤波。<br>1 技术分类和实现原理<br>    模板卷积，邻域操作	<br>2  线性平滑滤波器<br>3  非线性平滑滤波器<br>    减弱或消除图像中的噪声</p>
+<h5 id="椒盐噪声"><a href="#椒盐噪声" class="headerlink" title="椒盐噪声"></a>椒盐噪声</h5><p>椒盐噪声是指图像中出现的噪声只有两种灰度值，分别为a和b，通常情况下脉冲噪声总是数字化为允许的最大或最小值，所以负脉冲以黑点(类似胡椒)出现在图像中，正脉冲以白点(类似盐)出现在图像中。 </p>
+<h5 id="高斯噪声"><a href="#高斯噪声" class="headerlink" title="高斯噪声"></a>高斯噪声</h5><p>高斯噪声是一种源于电子电路噪声和由低照明度或高温带来的传感器噪声。高斯噪声也常称为正态噪声，符合高斯分布。是自然界中最常见的噪声。高斯噪声可以通过空域滤波的平滑滤波方法来消除。</p>
+<h5 id="线性平滑滤波"><a href="#线性平滑滤波" class="headerlink" title="线性平滑滤波"></a>线性平滑滤波</h5><p>1、邻域平均法—均值滤波器<br>    系数都是正的<br>    保持灰度值范围（所有系数之和为1）</p>
+<p>在图像上，对待处理的像素给定一个模板，该模板包括了其周围的邻近像素。将模板中的全体像素的均值来替代原来的像素值的方法。<br>例：3X3 模板</p>
+<p>2、加权平均<br>    离中心近的像素对滤波的贡献大，所以选择中心系数大，周围系数小，相当于对邻域的平均进行了加权。</p>
+<p>实际中为保证模板系数均为整数以减少计算，常取模板周边最小系数为1，内部系数成比例增加，中间最大。</p>
+<p>均值滤波器的缺点是，会使图像变的模糊，原因是它对所有的点都是同等对待，在将噪声点分摊的同时，将景物的边界点也分摊了。<br>为了改善效果，就可采用加权平均的方式来构造滤波器。</p>
+<h5 id="非线性平滑滤波"><a href="#非线性平滑滤波" class="headerlink" title="非线性平滑滤波"></a>非线性平滑滤波</h5><p><strong>中值（median）滤波器</strong><br>    (1) 将模板中心与像素位置重合；<br>    (2) 读取模板下各对应像素的灰度值；<br>    (3) 将这些灰度值从小到大排成1列；<br>    (4) 找出这些值里排在中间的1个；<br>    (5) 将这个中间值赋给模板中心位置像素。</p>
+<p>目的：既消除噪声又保持细节（不模糊）</p>
+<p><strong>对于椒盐噪声，中值滤波效果比均值滤波效果好。</strong><br>原因：<br>椒盐噪声是幅值近似相等但随机分布在不同位置上，图像中有干净点也有污染点。<br>中值滤波是选择适当的点来替代污染点的值，所以处理效果好。<br>因为噪声的均值不为0，所以均值滤波不能很好地去除噪声点。  </p>
+<p><strong>对于高斯噪声，均值滤波效果比中值滤波效果好。</strong><br>原因：<br>高斯噪声是幅值近似正态分布，但分布在每点像素上。<br>因为正态分布的均值为0，所以均值滤波可以消除噪声。<br>因为图像中的每点都是污染点，所以中值滤波选不到干净点。  </p>
+<p><strong>百分比滤波器</strong>：是基于对模板所覆盖像素的灰度值的排序来工作。<br>中值滤波器是一个特例，在中值滤波中，选取了灰度序列中位于50位置的像素作为滤波结果<br>最大最小值滤波是一种比较保守的图像处理手段，与中值滤波类似，首先要排序周围像素和中心像素值，然后用最小和最大像素值代替中心像素值。  </p>
+<h4 id="4-1-5图像锐化处理"><a href="#4-1-5图像锐化处理" class="headerlink" title="4.1.5图像锐化处理"></a>4.1.5图像锐化处理</h4><h5 id="图像锐化的目的"><a href="#图像锐化的目的" class="headerlink" title="图像锐化的目的"></a>图像锐化的目的</h5><p>图像锐化的目的是加强图像中景物的细节边缘和轮廓。<br>锐化的作用是使灰度反差增强。<br>因为边缘和轮廓都位于灰度突变的地方。所以锐化算法的实现是基于微分作用。  </p>
+<p>在图像的识别中常需要突出边缘和轮廓信息。图像锐化就是增强图像的边缘或轮廓。</p>
+<p>边缘和轮廓常常位于图像中灰度突变的地方，图像平滑通过平均（类似积分）过程使得图像边缘模糊，图像锐化通过微分而使图像边缘突出、清晰。 </p>
+<h5 id="1、梯度法—基于一阶微分的图像增强"><a href="#1、梯度法—基于一阶微分的图像增强" class="headerlink" title="1、梯度法—基于一阶微分的图像增强"></a>1、梯度法—基于一阶微分的图像增强</h5><p>某像素上的梯度值是该像素与相邻像素的灰度差值的单调递增函数。<br>    图像轮廓上，像素灰度有陡然变化，梯度值很大。<br>    图像灰度变化平缓区域，梯度值很小。<br>    等灰度区域，梯度值为零。  </p>
+<p>Roberts梯度算子<br>$$G_x &#x3D; \begin{bmatrix}<br>  1 &amp; 0  \<br>  0 &amp; -1  \<br>\end{bmatrix}<br>;G_y &#x3D; \begin{bmatrix}<br>  0 &amp; 1  \<br>  -1 &amp; 0  \<br>\end{bmatrix}<br>$$</p>
+<p>Sobel算子:  （3×3）<br>$$d_x &#x3D; \begin{bmatrix}<br>  1 &amp; 0 &amp; -1\<br>  2 &amp; 0 &amp; -2\<br>  1 &amp; 0 &amp; -1\<br>\end{bmatrix};<br>d_y &#x3D; \begin{bmatrix}<br>  -1 &amp; -2 &amp; -1\<br>  0 &amp; 0 &amp; 0\<br>  1 &amp; 2 &amp; 1\<br>\end{bmatrix}<br>$$<br>Priwitt(普雷威特）算子：（3×3）<br>$$S_y &#x3D; \begin{bmatrix}<br>  1 &amp; 0 &amp; -1\<br>  1 &amp; 0 &amp; -1\<br>  1 &amp; 0 &amp; -1\<br>\end{bmatrix};<br>S_x &#x3D; \begin{bmatrix}<br>  1 &amp; 1 &amp; 1\<br>  0 &amp; 0 &amp; 0\<br>  -1 &amp; -1 &amp; -1\<br>\end{bmatrix}<br>$$<br>后处理</p>
+<p>方法1：整体加一个正整数，以保证所有的像素值均为正。<br>这样做的结果是：可以获得类似浮雕的效果。</p>
+<p>方法2：将所有的像素值取绝对值。<br>这样做的结果是，获得对边缘的有方向提取。</p>
+<h3 id="4-2频域图像增强技术"><a href="#4-2频域图像增强技术" class="headerlink" title="4.2	频域图像增强技术"></a>4.2	频域图像增强技术</h3><h4 id="4-2-1频域增强原理"><a href="#4-2-1频域增强原理" class="headerlink" title="4.2.1	频域增强原理"></a>4.2.1	频域增强原理</h4><p>低频分量：对应图像缓慢变化分量<br>较高的频率：对应图像中变化较快的灰度级分量（如物体边缘和噪声等）  </p>
+<h4 id="4-2-2低通滤波"><a href="#4-2-2低通滤波" class="headerlink" title="4.2.2	低通滤波"></a>4.2.2	低通滤波</h4><h4 id="4-2-3高通滤波"><a href="#4-2-3高通滤波" class="headerlink" title="4.2.3	高通滤波"></a>4.2.3	高通滤波</h4><h4 id="4-2-4带通和带阻滤波"><a href="#4-2-4带通和带阻滤波" class="headerlink" title="4.2.4	带通和带阻滤波"></a>4.2.4	带通和带阻滤波</h4><h4 id="4-2-5同态滤波"><a href="#4-2-5同态滤波" class="headerlink" title="4.2.5	同态滤波"></a>4.2.5	同态滤波</h4><p>同态滤波是一种在频域中同时将图像亮度范围进行压缩和将图像对比度进行增强的方法。</p>
+<p>利用压缩亮度范围和增强对比度来改善图像的质量。使用这种方法可以使图像处理符合人眼对于亮度响应的非线性特性，避免了直接对图像进行傅立叶变换处理的失真。</p>
+<p> f(x,y)&#x3D;i(x,y)r(x,y)<br>           i(x,y)－照射分量,照度相对变化很小，低频区<br>           r(x,y)－反射分量，反映图像细节分量，处于高频区</p>
+<h3 id="4-3频域增强技术与空域增强技术"><a href="#4-3频域增强技术与空域增强技术" class="headerlink" title="4.3	频域增强技术与空域增强技术"></a>4.3	频域增强技术与空域增强技术</h3><p>空间滤波器的工作原理可借助频域进行分析 </p>
+<p>空间平滑滤波器<br>    消除或减弱图像中灰度值具有较大较快变化部分的影响，这些部分对应频域中的高频分量，所以可用频域低通滤波来实现。<br>空间锐化滤波器<br>    消除或减弱图像中灰度值缓慢变化的部分，这些部分对应频域中的低频分量，所以可用频域高通滤波来实现。  		</p>
+<h2 id="5-图像编码"><a href="#5-图像编码" class="headerlink" title="5.图像编码"></a>5.图像编码</h2><p>动机&#x2F;原因：表达数字图像所需数据量通常很大<br>图像编码：<br>    采用对图像的新的表达方法以减小所需的数据量<br>    数据和信息：数据是信息的载体<br>        对给定量的信息可用不同的数据量来表示<br>        对给定量的信息，设法减少表达这些信息的			数据量称为数据压缩<br>    图像压缩（编码）和图像解压缩（解码）  </p>
+<p>原始图像经编码后成为一串特定的码流，这串码流经解码又成为一幅图像。</p>
+<p>如果解码图像与原始图像相同，称编解码过程是无损的；若不同，称编解码过程是有损的。</p>
+<p>图像压缩方法的分类 ：<br>    信息保存型：<br>        在压缩和解压缩过程中没有信息损失<br>        压缩率一般在2 ~ 10之间<br>    信息损失型：<br>        常能取得较高的压缩率（几十~几百）<br>        压缩后并不能经解压缩恢复原状 </p>
+<h3 id="5-1图像编码的基础知识"><a href="#5-1图像编码的基础知识" class="headerlink" title="5.1	图像编码的基础知识"></a>5.1	图像编码的基础知识</h3><h4 id="5-1-1-数据冗余"><a href="#5-1-1-数据冗余" class="headerlink" title="5.1.1  数据冗余"></a>5.1.1  数据冗余</h4><p>由于一幅图像存在数据冗余和主观视觉冗余，所以压缩方式就可以从这两方面着手开展。</p>
+<p>改变图像信息的描述方式，以压缩掉图像中的数据冗余。</p>
+<p>忽略一些视觉不太明显的微小差异，以压缩掉图像中的视觉冗余，即“有损”压缩。</p>
+<p>数据冗余类别<br>(1)  编码冗余<br>    与灰度分布的概率特性有关<br>(2)  像素相关冗余<br>    空间冗余，几何冗余<br>(3)  心理视觉冗余<br>    与主观感觉有关  </p>
+<p>减少&#x2F;消除其中的一种&#x2F;多种冗余，就能取得数据压缩的效果  </p>
+<h4 id="5-1-2-图像编码中的保真度准则"><a href="#5-1-2-图像编码中的保真度准则" class="headerlink" title="5.1.2  图像编码中的保真度准则"></a>5.1.2  图像编码中的保真度准则</h4><p>图像保真度</p>
+<p>信息保存型&#x2F;信息损失型  </p>
+<p>描述解码图像相对于原始图像的偏离程度  </p>
+<p>对信息损失的测度  </p>
+<p>主观保真度准则<br>主观测量图像的质量，因人而异，应用不方便  </p>
+<p>客观保真度准则<br>用编码输入图与解码输出图的某个确定函数表示损失的信息量， 便于计算或测量  </p>
+<h4 id="5-1-3-图像编码模型"><a href="#5-1-3-图像编码模型" class="headerlink" title="5.1.3  图像编码模型"></a>5.1.3  图像编码模型</h4><p>![[Pasted image 20230425234432.png]]<br>信源编码器：完成原数据的压缩。<br>信道编码器：为了抗干扰，增加一些容错、校验位、版权保护，实际上是增加冗余。  </p>
+<p>信源编码器和解码器的模型<br>映射器 ：减少像素间冗余，或进行图像变换。<br>量化器 ：减少视觉心理冗余，仅用于有损压缩。<br>符号编码器：减少编码冗余，如哈夫曼编码			</p>
+<h4 id="5-1-4-信息论的基础理论"><a href="#5-1-4-信息论的基础理论" class="headerlink" title="5.1.4  信息论的基础理论"></a>5.1.4  信息论的基础理论</h4><h5 id="信息量"><a href="#信息量" class="headerlink" title="信息量"></a>信息量</h5><p>概率为P(E)的随机事件 E 的信息量	$$I(E)&#x3D;log\frac{1}{P(E)}&#x3D;-logP(E) $$I(E )称为E的自信息（随概率增加而减少）</p>
+<p>特例：P(E ) &#x3D; 1（即事件总发生），那么I(E ) &#x3D; 0<br>信息的单位：比特（log以2为底）<br>1个比特：即2个相等可能性的事件之一发生  </p>
+<h5 id="信息系统"><a href="#信息系统" class="headerlink" title="信息系统"></a>信息系统</h5><p>信源通过信道与信宿（即信息用户）连通以传递自信息 </p>
+<p>信源符号集：$A &#x3D; {a_1, a_2, …, a_J}$<br>概率矢量：$u &#x3D; [P(a_1)  P(a_2)  …  P(a_J )]^T$<br>用$(A, u)$可以完全描述信源</p>
+<h5 id="平均信息"><a href="#平均信息" class="headerlink" title="平均信息"></a>平均信息</h5><p>产生单个信源符号的自信息：$I(aj) &#x3D; –logP(aj)$<br>产生k个信源符号，符号$a_j$平均来说将产生$kP(a_j)$次   </p>
+<p>信源平均信息（熵，不确定性）<br>$$H(u)&#x3D;-\sum_{j&#x3D;1}^{J}  P(a_j)logP(a_j)$$<br>单位：比特&#x2F;像素<br>定义了观察到单个信源符号输出时所获得的平均信息量 </p>
+<h5 id="关于“熵（Entropy）”"><a href="#关于“熵（Entropy）”" class="headerlink" title="关于“熵（Entropy）”"></a>关于“熵（Entropy）”</h5><p>1）在符号个数不变的情况下，信源中各符号的出现概率相等时，该信源的熵最大。（最大离散熵定理）<br>2）为保证无损压缩，平均码长   $J_{avg}&gt;H(X)$；即熵是无损编码的下界 。<br>3）对于非等概率分布的信源，采用不等长编码，其平均码长小于等长编码的平均码长  </p>
+<h5 id="信道信息"><a href="#信道信息" class="headerlink" title="信道信息"></a>信道信息</h5><p>信源的输出是一个离散随机变量<br>信道的输出也是一个离散随机变量<br>信道符号集：$B &#x3D; {b_1, b_2, …, b_K}$<br>概率矢量：$v &#x3D; [P(b_1)  P(b_2)  …  P(b_K)]^T$<br>用(B, v)可以完全描述信道输出和用户接受到的信息 </p>
+<h3 id="5-2无损压缩编码"><a href="#5-2无损压缩编码" class="headerlink" title="5.2	无损压缩编码"></a>5.2	无损压缩编码</h3><h4 id="5-2-1基本编码定理"><a href="#5-2-1基本编码定理" class="headerlink" title="5.2.1	基本编码定理"></a>5.2.1	基本编码定理</h4><p>1、无失真编码定理<br>在无干扰的条件下，存在一种无失真的编码方法，使编码的平均长度L与信源的熵H(s)任意地接近，即L&#x3D;H(s)+ε，其中ε为任意小的正数，但以H(s)为其下限，即L≥H(s)，这就是香农(Shannon)无干扰编码定理。</p>
+<h4 id="5-2-2霍夫曼编码"><a href="#5-2-2霍夫曼编码" class="headerlink" title="5.2.2	霍夫曼编码"></a>5.2.2	霍夫曼编码</h4><h5 id="基本原理："><a href="#基本原理：" class="headerlink" title="基本原理："></a>基本原理：</h5><p>为了达到大的压缩率，提出了一种方法就是将在图像中出现频度大的像素值，给一个比较短的编码，将出现频度小的像素值,给一个比较长的编码。</p>
+<p>例：<br>         aaaa      bbb    cc  d   eeeee    fffffff<br>              4          3      2    1      5           7</p>
+<p>如果不进行特殊的编码，按照图像像素的描述，需要的数据量为：</p>
+<p>22 * 8&#x3D;176 bits </p>
+<p>  由：<br>f&#x3D;00   e&#x3D;10   a&#x3D;11  b&#x3D;011  c&#x3D;0100  d&#x3D;0101<br> aaaa bbb cc d eeeee fffffff</p>
+<p>数据量：7 * 2+5 * 2+1 * 4+2 * 4+3 * 3+4 * 2&#x3D;53 bits  </p>
+<p>压缩比为：176：53&#x3D;3.32：1</p>
+<h5 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h5><p>首先求出图像中灰度分布的灰度直方图；<br>根据该直方图，对其按照分布概率从小到大的顺序进行排列；<br>每一次从中选择出两个概率为最小的节点相加，形成一个新的节点，构造一个称为“Huffman树”的二叉树；<br>对这个二叉树进行编码，就获得了Huffman编码码字。</p>
+<h4 id="5-2-3香农—法诺编码"><a href="#5-2-3香农—法诺编码" class="headerlink" title="5.2.3	香农—法诺编码"></a>5.2.3	香农—法诺编码</h4><p>是一种变长编码技术，其码字中的0和1是独立的，并且基本上等概率出现。</p>
+<p>主要步骤为：<br>(1)  将信源符号依其概率从大到小排列；<br>(2)  将尚未确定码字的信源符号分成概率和接近的两部分；<br>(3)  分别给两部分的信源符号组合赋值；<br>(4)  如果两部分均只有一个信源符号，编码结束，否则返回 (2)继续进行。	  </p>
+<h4 id="5-2-4算术编码"><a href="#5-2-4算术编码" class="headerlink" title="5.2.4	算术编码"></a>5.2.4	算术编码</h4><p>基本思想<br>将要压缩的数据映射到 [0,1) 实数区间中的某一区段上的实数X，该实数的二进制展开式即为原符号串的压缩编码结果</p>
+<p>算术编码通过对当前的概率区间作迭代分割来确定实数。是具体构造出的用小数表示信息的方法。小数随位数的增加，它的精度也随之提高，从信息的角度来说，它所含有的信息量也随之增加。</p>
+<h3 id="5-3限失真编码"><a href="#5-3限失真编码" class="headerlink" title="5.3	限失真编码"></a>5.3	限失真编码</h3>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E7%A2%8E%E7%89%87/">#技术碎片</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>机器人视觉及图像处理课程相关资料汇总</div>
+      <div>http://example.com/2023/04/24/Image_Processing_review/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>The_18th</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年4月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/04/14/embedded_review/" title="嵌入式系统原理课程串讲复习">
+                        <span class="hidden-mobile">嵌入式系统原理课程串讲复习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
